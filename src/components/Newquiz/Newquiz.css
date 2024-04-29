@@ -1,0 +1,124 @@
+
+a{
+    text-decoration: none;
+}
+.zh-newquiz .card{
+    display: flex;
+  flex-wrap: wrap;
+  margin-top: 4%;
+  border: none;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.263),
+              0px 0px 0px 2px rgba(0, 0, 0, 0.263),
+              0px 0px 0px 2px rgba(0, 0, 0, 0.263),
+              0px 0px 0px 2px rgba(0, 0, 0, 0.263);
+}
+
+@media (max-width:1400px){
+
+.zh-newquiz .card{
+    width: 8.2rem !important;
+    box-shadow: none;
+    
+}
+
+.zh-newquiz .card-body{
+    height: 9vh;
+    object-fit: cover;
+    padding: 0%;
+}
+
+.zh-newquiz .card-body .card-title{
+    font-size: 1rem;
+    font-weight: 700;
+}
+.zh-newquiz .card-body .card-text{
+    font-size: .85rem;
+
+}
+
+}
+@media (max-width:775px){
+
+.zh-newquiz .card{
+    width: 6.1rem !important;
+    box-shadow: none;
+    
+}
+
+.zh-newquiz .card-body{
+    height: 9vh;
+    object-fit: cover;
+    padding: 0%;
+}
+
+.zh-newquiz .card-body .card-title{
+    font-size: .9rem;
+    font-weight: 700;
+}
+.zh-newquiz .card-body .card-text{
+    font-size: .75rem;
+
+}
+
+}
+
+@media (max-width:600px){
+
+.zh-newquiz .card{
+    width: 4.8rem !important;
+    box-shadow: none;
+    
+}
+
+.zh-newquiz .card-body{
+    height: 9vh;
+    object-fit: cover;
+    padding: 0%;
+}
+
+.zh-newquiz .card-body .card-title{
+    font-size: .6rem;
+    font-weight: 700;
+}
+.zh-newquiz .card-body .card-text{
+    font-size: .45rem;
+
+}
+
+}
+@media (max-width:480px){
+
+.zh-newquiz .card{
+    width: 3.1rem !important;
+    box-shadow: none;
+    
+}
+
+.zh-newquiz .card-body{
+    height: 20vh;
+    object-fit: cover;
+    padding: 0%;
+}
+
+.zh-newquiz .card-body .card-title{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.zh-newquiz .card-body .card-text{
+    font-size: 1.35rem;
+
+}
+
+}
+.card-body{
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.card-body .card-title{
+    width:75%;
+    margin: 5px auto;
+}
+
