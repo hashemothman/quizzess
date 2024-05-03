@@ -1,19 +1,22 @@
 import React from 'react'
 import facebook from './../../assets/facebook-lite-icon.jpg'
 import instaicon from './../../assets/images/Instagram-Logo.wine.svg'
-import whatsapp from './../../assets/png-clipart-whatsapp-graphics-computer-icons-instant-messaging-whatsapp-logo-desktop-wallpaper.png'
+import whatsapp from './../../assets/images/tiktok3.png'
+import youtube from './../../assets/images/YouTube-Icon-Full-Color-Logo.wine.svg'
 import './Footer.css'
 const Footer = () => {
+    
   return (
     <div className='footer-section'>
         <div className='footer'>
         <div className='footerone'>
-        <h3>اتصل بنا</h3>
-        <p>Travel helps companies manage payments easily</p>
+        <h3>تواصل معنا </h3>
+        <p>للمزيد حول مواقعنا</p>
             <div className='footer-icons'>
-                <a href="http://"><img src={facebook} style={{width:'24px'}}/></a>
-                <a href="http://"><img src={instaicon}/></a>
-                <a href="http://"><img src={whatsapp} style={{width:'26px', height:'26px'}}/></a>
+                <a href="https://www.facebook.com/share/8YVsXymp8FzXMCFq/?mibextid=LQQJ4d"><img src={facebook} style={{width:'24px'}}/></a>
+                <a href="http://www.instagram.com/rob.quiz?igsh=Y2R4dXkyaXpkbXJs"><img src={instaicon}/></a>
+                <a href="https://www.tiktok.com/@rob.quiz?_t=8lxIMYQGYD4&_r=1"><img src={whatsapp} style={{width:'26px', height:'26px'}}/></a>
+                <a href="https://youtube.com/@Rob.Quiz1?si=Tu8pGNqhw0PI98Hk"><img src={youtube} style={{width:'26px', height:'26px'}}/></a>
             </div>
         </div>
         {/* <div className='footertwo'>

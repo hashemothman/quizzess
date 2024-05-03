@@ -7,10 +7,17 @@ a{
   flex-wrap: wrap;
   margin-top: 4%;
   border: none;
-  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.263),
-              0px 0px 0px 2px rgba(0, 0, 0, 0.263),
-              0px 0px 0px 2px rgba(0, 0, 0, 0.263),
-              0px 0px 0px 2px rgba(0, 0, 0, 0.263);
+  background-color: transparent;
+  /* box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.263),
+              0px 0px 0px 0px rgba(0, 0, 0, 0.263),
+              0px 0px 0px 0px rgba(0, 0, 0, 0.263),
+              0px 0px 0px 0px rgba(0, 0, 0, 0.263); */
+}
+
+.zh-newquiz .card .card-img{
+    width: 40%;
+    margin: 0 auto;
+    /* display: none; */
 }
 
 @media (max-width:1400px){
@@ -18,7 +25,7 @@ a{
 .zh-newquiz .card{
     width: 8.2rem !important;
     box-shadow: none;
-    
+    display: flex !important;
 }
 
 .zh-newquiz .card-body{
@@ -95,13 +102,13 @@ a{
 }
 
 .zh-newquiz .card-body{
-    height: 20vh;
+    /* height: 20vh; */
     object-fit: cover;
     padding: 0%;
 }
 
 .zh-newquiz .card-body .card-title{
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
     font-weight: 500;
 }
 .zh-newquiz .card-body .card-text{
@@ -118,7 +125,14 @@ a{
 
 }
 .card-body .card-title{
-    width:75%;
+    /* width:75%; */
     margin: 5px auto;
 }
 
+
+
+
+
+
+
+ 

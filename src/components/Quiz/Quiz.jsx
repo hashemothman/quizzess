@@ -16,6 +16,15 @@ import Card from 'react-bootstrap/Card';
 
 
 const Quiz = () => {
+
+const Backclickzh =()=>{
+  window.history.back();
+}
+
+
+
+
+
   const [quizes, setQuizes] = useState([]);
   const [quizesTime, setQuizesTime] = useState([]);
   const [resultAnswer, setResultAnswer] = useState([]);
@@ -876,13 +885,13 @@ useEffect(() => {
 
     { survey === "top_ten" && (
       <div>
-        <div style={{ position: 'sticky', top: '10%' }}>
+        <div style={{ position: 'sticky', top: '10%' , backgroundColor:'#fff'}}>
  <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}>
-  <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '100px' }}>
+  <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
     <Form.Control
       as="textarea"
       placeholder="Leave a comment here"
-      style={{ height: '100px', marginBottom: '40px' }}
+      style={{ height: '70px', marginBottom: '40px' }}
       value={userAnswer6}
       onChange={handleInputChange6}
       disabled={isQuestionSubmitted6}
@@ -921,16 +930,16 @@ useEffect(() => {
         {survey.question?.type === 'text' && (
           <div>
           
-            <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped  borderless  style={{ width: '100%' }}>
+            <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped  borderless  style={{ width: '80%' }}>
               <thead >
                 {i === 0 && (
                   <tr>
-                    <th style={{ width: '15%' }}>#</th>
+                    {/* <th style={{ width: '15%' ,backgroundColor:'#097bed',color:'#fff' }}>#</th> */}
                     {survey.question?.content.map((title, index) => (
-                      <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
+                      <th key={index} style={{ width: '15%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff'  }}>{title}</th>
                     ))}
                     {survey.question?.answers.map((title, index) => (
-                      <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
+                      <th key={index} style={{ width: '25%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff' }}>{title}</th>
                     ))}
                   </tr>
                 )}
@@ -938,7 +947,7 @@ useEffect(() => {
               <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : ''} >
   {i !== 0 && (
     <tr style={{ width: '100%', backgroundColor: 'green' }}>
-      <td style={{ width: '15%' }}>{i}</td>
+      {/* <td style={{ width: '15%' }}>{i}</td> */}
       {survey.question?.content.map((value, index) => (
         <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
       ))}
@@ -1036,7 +1045,7 @@ useEffect(() => {
             <thead>
               {i === 0 && (
                 <tr>
-                  <th style={{ width: '15%' }}>#</th>
+                  {/* <th style={{ width: '15%' }}>#</th> */}
                   {survey.question?.content.map((title, index) => (
                     <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
                   ))}
@@ -1049,7 +1058,7 @@ useEffect(() => {
             <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : 'table-danger'}>
               {i !== 0 && (
                 <tr style={{ width: '100%', backgroundColor: 'green' }}>
-                  <td style={{ width: '15%' }}>{i}</td>
+                  {/* <td style={{ width: '15%' }}>{i}</td> */}
                  
                   {survey.question?.content.map((value, index) => (
                     <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
@@ -1096,11 +1105,19 @@ useEffect(() => {
   
       <a href='http://robquiz.com'>
   <button className='buttonnew ha-reset'>العودة الى الرئيسية</button>
+  
 </a> 
     </div>
+  
   </>
-) : null}   
+
+)  : null}   
+<a href='https://robquiz.com'>
+<button className='buttonback' >Back</button> 
+</a>
     </div>
+
+
     </div>
   )
 }

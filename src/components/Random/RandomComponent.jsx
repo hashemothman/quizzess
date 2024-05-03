@@ -740,7 +740,7 @@ useEffect(() => {
                 <thead >
                   {i === 0 && (
                     <tr>
-                      <th style={{ width: '15%' }}>#</th>
+                      {/* <th style={{ width: '15%' }}>#</th> */}
                       {survey.question?.content.map((title, index) => (
                         <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
                       ))}
@@ -753,7 +753,7 @@ useEffect(() => {
                 <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : ''} >
     {i !== 0 && (
       <tr style={{ width: '100%', backgroundColor: 'green' }}>
-        <td style={{ width: '15%' }}>{i}</td>
+        {/* <td style={{ width: '15%' }}>{i}</td> */}
         {survey.question?.content.map((value, index) => (
           <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
         ))}
@@ -836,7 +836,7 @@ useEffect(() => {
               <thead>
                 {i === 0 && (
                   <tr>
-                    <th style={{ width: '15%' }}>#</th>
+                    {/* <th style={{ width: '15%' }}>#</th> */}
                     {survey.question?.content.map((title, index) => (
                       <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
                     ))}
@@ -849,7 +849,7 @@ useEffect(() => {
               <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : 'table-danger'}>
                 {i !== 0 && (
                   <tr style={{ width: '100%', backgroundColor: 'green' }}>
-                    <td style={{ width: '15%' }}>{i}</td>
+                    {/* <td style={{ width: '15%' }}>{i}</td> */}
                     {survey.question?.content.map((value, index) => (
                       <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
                     ))}

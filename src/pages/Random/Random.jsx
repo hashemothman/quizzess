@@ -32,7 +32,7 @@ const RandomPage = () => {
   return (
     <div className='zh-quiz-page-container'>
       <div className='zh-quiz-page'>
-        <img src={img}/>
+        {/* <img src={img}/> */}
         <Random/>
     </div>
     

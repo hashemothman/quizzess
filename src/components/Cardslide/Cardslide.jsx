@@ -14,7 +14,7 @@ const Cardslide = (props) => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 6,
         slidesToScroll: 1,
         autoplay:true,
         autoplayspeed:2,
@@ -39,7 +39,7 @@ const Cardslide = (props) => {
             {
               breakpoint: 480,
               settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1
               }
             }
