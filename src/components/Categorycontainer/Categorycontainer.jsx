@@ -38,7 +38,7 @@ var settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 5,
+  slidesToShow: 6,
   slidesToScroll: 5,
   autoplay:false,
   autoplayspeed:2,
@@ -77,7 +77,10 @@ var settings = {
            <div style={{width:'100%'}}>
             <Slider {...settings}>
         {categories.map((category) => (
-          <Categories key={category.id} id={category.id} img={url + category.image} title={category.name} />
+          <Categories key={category.id} id={category.id}
+           img={url + category.image} title={category.name} 
+
+           />
           
         ))}
        </Slider>

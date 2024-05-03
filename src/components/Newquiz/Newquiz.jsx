@@ -1,4 +1,5 @@
 import './Newquiz.css';
+// import './../Categories/Categories.css'
 import Card from 'react-bootstrap/Card';
 import { useLocation } from 'react-router-dom';
 
@@ -14,7 +15,8 @@ const Newquiz = (props) => {
       {location.pathname === `/quizpage/${props.id}` ? (
         <a href={`/new/quizpage/${props.id}`} onClick={handleClick}>
           <Card style={{ width: '13rem' }}>
-            <Card.Img variant="top" src={props.img} />
+            <Card.Img variant="top" src={props.img} style={{width:' 80%',
+    margin: '0 auto',}} />
             <Card.Body style={{ textAlign: 'center' }}>
               <Card.Title>{props.title}</Card.Title>
               {/* <Card.Text>{props.description}</Card.Text> */}
@@ -24,8 +26,10 @@ const Newquiz = (props) => {
         </a>
       ) : (
         <a href={`/quizpage/${props.id}`} onClick={handleClick}>
-          <Card style={{ width: '13rem' }}>
-            <Card.Img variant="top" src={props.img} />
+          <Card style={{ width: '11rem' }}>
+            <Card.Img
+            //  variant="top" 
+             src={props.img} />
             <Card.Body style={{ textAlign: 'center' }}>
               <Card.Title>{props.title}</Card.Title>
               {/* <Card.Text>{props.description}</Card.Text> */}

@@ -1,8 +1,8 @@
 .hero-test{
-    background-image: url('../../assets/images/quiz.png');
+    /* background-image: url('../../assets/images/quiz.png'); */
     background-size: cover;
-    width:100%;
-    height: 65vh;
+    /* width:100%; */
+    height: 10vh;
     background-repeat: no-repeat;
     position: relative;
     border-radius: 0 0 15px 15px;
@@ -14,7 +14,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: black;
+    /* background-color: black; */
     opacity: 0.4;
     border-radius: 0 0 15px 15px;
 }
@@ -57,14 +57,23 @@
         justify-content: center;
     }
     .slick-slide img{
-        height: 13rem !important;
+        /* height: 13rem !important; */
         width: 16rem !important;
     }
 }
 .slick-slide img{
-    height: 10rem;
-    width: 100%;
+    /* height: 10rem; */
+    /* width: 100% !important; */
+    object-fit: scale-down;
 }
 .ho-contianer-test{
  margin:60px auto;
+}
+
+@media (max-width: 858px){
+   .pagination {
+        position: static;
+        height: auto;
+        background: transparent;
+    }
 }

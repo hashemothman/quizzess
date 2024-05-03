@@ -28,6 +28,7 @@ const router = createBrowserRouter(
         },
         {path:"/popular",
         element:<PopularPage/>
+        
         },
         {path:"/popular",
         element:<PopularPage/>

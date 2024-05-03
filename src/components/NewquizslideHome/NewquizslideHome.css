@@ -38,11 +38,11 @@
 }
 @media (max-width:900px) {
     .slick-prev{
-        display: none !important;
+        /* display: none !important; */
         margin-left: 0px !important;
     }
     .slick-next{
-        display: none !important;
+        /* display: none !important; */
 
         margin-right: 0px !important;
     }
