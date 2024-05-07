@@ -5,7 +5,7 @@ import NewquizslideHome from '../NewquizslideHome/NewquizslideHome'
 const Newquizcontainer = () => {
   return (
     <div className='zh-newquiz-container'>
-        <h1 style={{marginBottom:'50px'}}>أحدث الاختبارات</h1>
+        <h1 style={{marginBottom:'50px',textAlign:'right',width:'80%'}}>أحدث الاختبارات</h1>
         <div className='zh-newquiz-cards'>
             <NewquizslideHome/>
         </div>

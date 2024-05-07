@@ -72,7 +72,7 @@ var settings = {
 
   return (
     <div className='zh-ca-container'>
-      <h1>التصنيفات</h1>
+      <h1 style={{textAlign:'right',width:'92%'}}>التصنيفات</h1>
       <div className='zh-ca-inner'>
            <div style={{width:'100%'}}>
             <Slider {...settings}>

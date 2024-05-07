@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom"
 import Featuredcard from '../Featuredcard/Featuredcard'
 import './Container.css'
 import Newquiz from "../Newquiz/Newquiz";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { width } from '@fortawesome/free-solid-svg-icons/fa0';
 
 const Container = (props) => {
   const [categories, setCategories] = useState([]);
@@ -33,23 +37,65 @@ const Container = (props) => {
     fetchData();
   }
 }, [hasRequestedAPI]);
+var settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  autoplay:false,
+  autoplayspeed:2,
+  responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }
+    ]
+};
   return (
     <div className='zh-container'>
-        <h1>الاختبارات المميزة</h1>
+        <h1 style={{textAlign:'right',width:'92%'}}>الاختبارات المميزة</h1>
         <div className='zh-inner-container'>
+         {categories.length<=4?<div style={{display:'flex',justifyContent:'space-evenly'}}>{categories.map((category) => (
+          <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+          
+        ))}</div>: 
+        <Slider {...settings} style={{width:'100%'}}>
+   
+        
         {categories.map((category) => (
-        // <Featuredcard
-        // id={category.id}
-        //   smcardimg1={url + category.image}
-        //   smcardimg1sm={url + category.image}
-        //   title1={category.ar_name}
-        //   title1sm={category.ar_name}
-        //   desc1={category.notes}
-        //   desc1sm={category.notes}
-        //             //   date='4-3-2024'
-        // />
-        <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+          <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+          
         ))}
+       
+   
+    
+  </Slider>
+  }
+        {/* {categories.map((category) => (
+        
+        <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+        ))} */}
         
         </div>
         

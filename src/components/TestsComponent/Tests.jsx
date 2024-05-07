@@ -99,14 +99,7 @@ const Tests = () => {
           <Newquiz key={quiz.id} id={quiz.id} img={url + quiz.image} title={quiz.ar_name}  description={quiz.notes} testTime= {quiz.timer} answer ={quiz.answered_count}/>
           
         ))}
-        {/* <Newquiz /> */}
-        {/* </div> */}
-        {/* <Newquiz/>
-        <Newquiz />
-        <Newquiz/>
-        <Newquiz/>
-        <Newquiz/>
-        <Newquiz/> */}
+      
     
   </Slider>}
         

@@ -46,8 +46,20 @@ const Cardslide = (props) => {
           ]
       };
       const [isLoading, setIsLoading] = useState(true); // حالة لمؤشر التحميل
+      const [isLoading21, setIsLoading21] = useState(true); // حالة لمؤشر التحميل
+      const [isLoading23, setIsLoading23] = useState(true); // حالة لمؤشر التحميل
+      const [isLoading22, setIsLoading22] = useState(true); // حالة لمؤشر التحميل
+      const [isLoading11, setIsLoading11] = useState(true); // حالة لمؤشر التحميل
       const [hasRequestedAPI, setHasRequestedAPI] = useState(false);
+      const [hasRequestedAPI21, setHasRequestedAPI21] = useState(false);
+      const [hasRequestedAPI23, setHasRequestedAPI23] = useState(false);
+      const [hasRequestedAPI22, setHasRequestedAPI22] = useState(false);
+      const [hasRequestedAPI11, setHasRequestedAPI11] = useState(false);
       const [categories, setCategories] = useState([]);
+      const [categories21, setCategories21] = useState([]);
+      const [categories23, setCategories23] = useState([]);
+      const [categories22, setCategories22] = useState([]);
+      const [categories11, setCategories11] = useState([]);
       const url = 'https://robert-api.lavetro-agency.com/storage/';
       const { id } = useParams();
       useEffect(() => {
@@ -55,7 +67,7 @@ const Cardslide = (props) => {
           setIsLoading(true);
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes/popular');
+            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=10');
             setCategories(response.data.data);
             setHasRequestedAPI(true);
 
@@ -72,21 +84,145 @@ const Cardslide = (props) => {
         fetchData();
       }
     }, [hasRequestedAPI]);
+      useEffect(() => {
+        if (!hasRequestedAPI21) {
+          setIsLoading21(true);
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=21');
+            setCategories21(response.data.data);
+            setHasRequestedAPI21(true);
+
+            // console.log(response.data.data);
+            // console.log(categories[0].id);
+    
+          } catch (error) {
+            // console.error(error);
+          }finally {
+            setIsLoading21(false); // إخفاء مكون التحميل بعد الانتهاء
+          }
+        };
+    
+        fetchData();
+      }
+    }, [hasRequestedAPI21]);
+      useEffect(() => {
+        if (!hasRequestedAPI11) {
+          setIsLoading11(true);
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=11');
+            setCategories11(response.data.data);
+            setHasRequestedAPI11(true);
+
+            // console.log(response.data.data);
+            // console.log(categories[0].id);
+    
+          } catch (error) {
+            // console.error(error);
+          }finally {
+            setIsLoading11(false); // إخفاء مكون التحميل بعد الانتهاء
+          }
+        };
+    
+        fetchData();
+      }
+    }, [hasRequestedAPI11]);
+      useEffect(() => {
+        if (!hasRequestedAPI23) {
+          setIsLoading23(true);
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=23');
+            setCategories23(response.data.data);
+            setHasRequestedAPI23(true);
+
+            // console.log(response.data.data);
+            // console.log(categories[0].id);
+    
+          } catch (error) {
+            // console.error(error);
+          }finally {
+            setIsLoading23(false); // إخفاء مكون التحميل بعد الانتهاء
+          }
+        };
+    
+        fetchData();
+      }
+    }, [hasRequestedAPI23]);
+      useEffect(() => {
+        if (!hasRequestedAPI22) {
+          setIsLoading23(true);
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=22');
+            setCategories22(response.data.data);
+            setHasRequestedAPI22(true);
+
+            // console.log(response.data.data);
+            // console.log(categories[0].id);
+    
+          } catch (error) {
+            // console.error(error);
+          }finally {
+            setIsLoading22(false); // إخفاء مكون التحميل بعد الانتهاء
+          }
+        };
+    
+        fetchData();
+      }
+    }, [hasRequestedAPI22]);
   return (
     <div className='React-slide'>
+      <h3 style={{textAlign:'right',width:'100%'}}>رياضة أحدث الاختبارات</h3>
+
         <Slider {...settings}>
         {/* <div> */}
         {categories.map((category) => (
-        // <Card
-        // id={category.id}
-        //  img={url + category.image}
-        //     title={category.ar_name}
-        //     title1="ali"
-        //     difficulty='easy'
-        //     question={category.questions_count}/>
+        
         <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
             ))}
-        {/* </div> */}
+   
+  </Slider>
+  <h3 style={{textAlign:'right',width:'100%'}}>معلومات عامة أحدث الاختبارات</h3>
+
+        <Slider {...settings}>
+        {/* <div> */}
+        {categories21.map((category) => (
+        
+        <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+            ))}
+            </Slider>
+            <h3 style={{textAlign:'right',width:'100%'}}>جغرافيا أحدث الاختبارات</h3>
+
+        <Slider {...settings}>
+        {/* <div> */}
+        {categories11.map((category) => (
+        
+        <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+            ))}
+   
+  </Slider>
+        {/* <div> */}
+        <h3 style={{textAlign:'right',width:'100%'}}>التصنيفات العالمية أحدث الاختبارات</h3>
+
+        <Slider {...settings}>
+
+        {categories23.map((category) => (
+        
+        <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+            ))}
+   
+  </Slider>
+  <h3 style={{textAlign:'right',width:'100%'}}>شعارات أحدث الاختبارات</h3>
+
+        <Slider {...settings}>
+
+        {categories22.map((category) => (
+        
+        <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+            ))}
+   
   </Slider>
     </div>
   )
