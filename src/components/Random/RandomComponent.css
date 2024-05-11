@@ -46,7 +46,7 @@
 
 .zh-container-quiz .zh-ul{
     margin-top: 5%;
-
+    height: 30vh;
 }
 
 .zh-container-quiz ul li{
@@ -144,8 +144,9 @@
     margin-bottom: 0;
 }
 .ha-slider img{
-width: 100% !important;
-height: 13rem !important;
+width: 80% !important;
+/* height: 13rem !important; */
+height: max-content;
 }
 
 .zh-btn-text-quiz{
@@ -301,7 +302,7 @@ width: 250px !important;
 
     .zh-container-quiz .zh-ul li{
         width: 80%;
-        padding: 4%;
+        /* padding: 4%; */
         height: 5vh;
         font-size: .7em;
         
@@ -336,9 +337,11 @@ width: 250px !important;
 
     .zh-container-quiz .zh-ul li{
         width: 80%;
-        padding: 4%;
+        /* padding: 4%; */
         height: 5vh;
         font-size: .7em;
+        width: 48% !important;
+        margin: 3%;
         
     }
 

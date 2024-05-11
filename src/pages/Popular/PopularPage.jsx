@@ -12,7 +12,7 @@ const PopularPage = () => {
       flexDirection:"column",
       alignItems:"center"}}>
       <h4>اشهر الاختبارات</h4>
-      <p>تحقق من الاختبارات الاكثر شعبية! اختبر معرفتك وتحدى نفس</p>
+      <p>تحقق من الاختبارات الاكثر شعبية! اختبر معرفتك وتحدى نفسك</p>
       </div>
     <NewquizslidePopular/>
     </div>

@@ -14,7 +14,7 @@ const Quizes = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState(''); // حالة البحث
   // تعريف المتغير currentPage
-  const itemsPerPage = 6; // عدد العناصر لكل صفحة
+  const itemsPerPage = 2000; // عدد العناصر لكل صفحة
   const url = 'https://robert-api.lavetro-agency.com/storage/';
   const { id } = useParams();
 
@@ -47,7 +47,7 @@ const Quizes = () => {
     setSearchQuery(event.target.value); // تحديث قيمة searchQuery عند تغيير حقل البحث
   };
   return (
-    <div style={{minHeight:'100vh'}}>
+    <div style={{minHeight:'80vh'}}>
       
       <div style={{margin:"50px 0"}}>
       <div className='zh-final-popular-text' style={{display:"flex",
@@ -77,9 +77,11 @@ const Quizes = () => {
         {currentCategories.map((category) => (
           <Featuredcard
             id={category.id}
-            smcardimg1={url + category.image}
-            smcardimg1sm={url + category.image}
+            // smcardimg1={url + category.image} 
+            // smcardimg1sm={url + category.image}
+            style={{display:'none'}}
             title1={category.ar_name}
+
             title1sm={category.ar_name}
             // desc1={'Question: '+ category.questions_count }
             // desc1sm='Hello world sm'
@@ -87,7 +89,7 @@ const Quizes = () => {
         ))}
       </div>
 
-      <div className="ha-pagination">
+      {/* <div className="ha-pagination">
         <Pagination>
           <Pagination.First onClick={() => paginate(1)} />
           {currentPage !== 1 && (
@@ -103,7 +105,7 @@ const Quizes = () => {
           {currentPage !== 1 && (
           <Pagination.Last onClick={() => paginate(Math.ceil(categories.length / itemsPerPage))} />)}
         </Pagination>
-      </div>
+      </div> */}
     </div>
   );
 }

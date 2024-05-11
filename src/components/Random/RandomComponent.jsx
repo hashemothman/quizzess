@@ -574,7 +574,7 @@ useEffect(() => {
     <Form.Control
       as="textarea"
       placeholder="Leave a comment here"
-      style={{ height: '150px', marginBottom: '40px' }}
+      style={{ marginBottom: '40px' }}
       value={userAnswer}
       onChange={handleInputChange}
       disabled={!isFormEnabled || isQuestionSubmitted} // تعطيل إدخال الإجابة بعد إجابة صحيحة أو تعطيل النموذج أو بعد الضغط على زر الإرسال
@@ -698,7 +698,7 @@ useEffect(() => {
       <Form.Control
         as="textarea"
         placeholder="Leave a comment here"
-        style={{ height: '100px', marginBottom: '40px' }}
+        style={{ height: '80px', marginBottom: '40px' }}
         value={userAnswer6}
         onChange={handleInputChange6}
         disabled={isQuestionSubmitted6}
@@ -781,7 +781,7 @@ useEffect(() => {
       )}
    
   
-          <div className='zh-btn-text-quiz' style={{marginRight:'5.625rem'}}>
+          <div className='zh-btn-text-quiz' >
           <button className='buttonnew' onClick={() => {
     survey === 'normal'?next():setResult(true);
     handleIncrement();
@@ -790,7 +790,7 @@ useEffect(() => {
   
   }}>{survey === 'normal'?(indexData === quizes.length  ? 'اعطاء النتيجة' : 'السؤال التالي'):'اعطاء النتيجة'}</button>
   <div className='zh-index' style={{ textAlign: 'right' }}>
-    {survey === 'normal' ? `${indexData} الأسئلة من ${quizes.length}` : ''}
+    {survey === 'normal' ? `${indexData}  / ${quizes.length}` : ''}
   </div>        </div>
           </div>
           <img className='img-quiz' src={quizes[indexData - 1]?.question?.image===null?img2:url+quizes[indexData - 1]?.question?.image}/> 
@@ -816,6 +816,7 @@ useEffect(() => {
             ))}
           </div>
         </div>
+        <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
         <div className='ha-slider' style={{ width: '85%', margin: '70px auto', marginRight: '-30px' }}>
           <Newquizslide />
         </div>
@@ -883,6 +884,7 @@ useEffect(() => {
             ))}
           </div>
         </div>
+        <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
         <div className='ha-slider' style={{ width: '85%', margin: '70px auto', marginRight: '-30px' }}>
           <Newquizslide />
         </div>

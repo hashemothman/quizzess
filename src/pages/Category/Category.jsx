@@ -7,12 +7,14 @@ import Pagination from 'react-bootstrap/Pagination';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './CategoryStyle.css';
+import Slider from 'react-slick';
+import Newquiz from '../../components/Newquiz/Newquiz.jsx';
 
 const Category = () => {
   const [isLoading, setIsLoading] = useState(true); // حالة لمؤشر التحميل
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // تعريف المتغير currentPage
-  const itemsPerPage = 6; // عدد العناصر لكل صفحة
+  const itemsPerPage = 2000; // عدد العناصر لكل صفحة
   const url = 'https://robert-api.lavetro-agency.com/storage/';
   const { id } = useParams();
 
@@ -43,6 +45,7 @@ const Category = () => {
   return (
     <>
       <CatogeryHero title='Category' />
+      <h5 style={{textAlign:'center',marginTop:'5px'}} className='zh-h5-category'>اختباراتنا مقسمة الى فئات.اختر الفئة التي تحبها واختبر معلوماتك</h5>
       <div className="ha-serch">
         <Form>
           <Form.Group className="mt-5 mb-5 d-flex" controlId="formGroupEmail">
@@ -52,6 +55,7 @@ const Category = () => {
             </Button>
           </Form.Group>
         </Form>
+        
       </div>
       <div className="ha-category-card">
         {/* استخدام الفئات الحالية بدلاً من القائمة الكاملة */}
@@ -68,7 +72,7 @@ const Category = () => {
         ))}
       </div>
 
-      <div className="ha-pagination">
+      {/* <div className="ha-pagination">
         <Pagination>
           <Pagination.First onClick={() => paginate(1)} />
           <Pagination.Prev onClick={() => paginate(currentPage - 1)} />
@@ -80,7 +84,7 @@ const Category = () => {
           <Pagination.Next onClick={() => paginate(currentPage + 1)} />
           <Pagination.Last onClick={() => paginate(Math.ceil(categories.length / itemsPerPage))} />
         </Pagination>
-      </div>
+      </div> */}
     </>
   );
 }

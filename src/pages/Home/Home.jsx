@@ -41,8 +41,9 @@ const Home = () => {
             question='quiz'/>
 
       {/* <Categories/> */}
-      <Categorycontainer/>
       <Trending/>
+      <Categorycontainer/>
+      {/* <Trending/> */}
       <Container/>
     </>
   )

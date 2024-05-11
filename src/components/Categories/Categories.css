@@ -28,7 +28,7 @@
 
 }
 .ha-category-content img{
-width:70%;
+width:70% ;
 height: 6rem;
 }
 .ha-category-content h3{
@@ -165,7 +165,7 @@ height: 6rem;
 } */
 @media (max-width: 700px) {
     .ha-link {
-        width: 45% !important;
+        width: 30% !important;
     }
     .zh-category{
         margin: 0 5px;
@@ -176,9 +176,17 @@ height: 6rem;
     }
     
 }
+
+@media (max-width:600px){
+    .ha-link{
+        width: 30% !important;
+        margin-right: 3%;
+    }
+}
+
 @media (max-width:500px) {
     .ha-link{
-        width: 90% !important;
+        width: 25% !important;
     }
     
 }
