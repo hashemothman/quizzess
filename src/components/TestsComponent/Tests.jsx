@@ -12,7 +12,35 @@ import Newquiz from '../Newquiz/Newquiz';
 
 
 
-const Tests = () => {
+const Tests = (props) => {
+
+//   const [categories11, setCategories11] = useState([]);
+//   const [hasRequestedAPI11, setHasRequestedAPI11] = useState(false);
+//   const [isLoading11, setIsLoading11] = useState(true);
+//   useEffect(() => {
+//     if (!hasRequestedAPI11) {
+//       setIsLoading11(true);
+//     const fetchData = async () => {
+//       try {
+//         const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=${id}');
+//         setCategories11(response.data.data);
+//         setHasRequestedAPI11(true);
+
+   
+
+//       } catch (error) {
+   
+//       }finally {
+//         setIsLoading11(false);  
+//       }
+//     };
+
+//     fetchData();
+//   }
+// }, [hasRequestedAPI11]);
+
+
+
   const [quizes, setQuizes] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // حالة لمؤشر التحميل
 
@@ -86,14 +114,22 @@ const Tests = () => {
       </Form.Group>
     </Form>
     </div>
-        
-        {/* <Newquizslide/> */}
+    {/* <h3 style={{textAlign:'right',width:'100%'}}> {quizes[0]?.category?.name} </h3>
+
+<Slider {...settings}>
+
+{categories11.map((category) => (
+
+<Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+    ))}
+    </Slider> */}
+
         <div className='React-slide ho-contianer-test' style={{margin:'50px auto'}}>
        {quizes.length<=4?<div style={{display:'flex',justifyContent:'space-evenly'}}>{quizes.map((quiz) => (
           <Newquiz key={quiz.id} id={quiz.id} img={url + quiz.image} title={quiz.ar_name}  description={quiz.notes} testTime= {quiz.timer} answer ={quiz.answered_count}/>
           
         ))}</div>:<Slider {...settings}>
-        {/* <div> */}
+
         
         {quizes.map((quiz) => (
           <Newquiz key={quiz.id} id={quiz.id} img={url + quiz.image} title={quiz.ar_name}  description={quiz.notes} testTime= {quiz.timer} answer ={quiz.answered_count}/>
@@ -104,24 +140,7 @@ const Tests = () => {
   </Slider>}
         
     </div>
-        {/* <div className="ha-pagination">
-    <Pagination>
-      <Pagination.First />
-      <Pagination.Prev />
-      <Pagination.Item>{1}</Pagination.Item>
-      <Pagination.Ellipsis />
-
-      <Pagination.Item>{2}</Pagination.Item>
-      <Pagination.Item>{3}</Pagination.Item>
-      <Pagination.Item active>{4}</Pagination.Item>
-   
-
-      <Pagination.Ellipsis />
-      <Pagination.Item>{5}</Pagination.Item>
-      <Pagination.Next />
-      <Pagination.Last />
-    </Pagination>
-    </div> */}
+        
     </div>
   )
 }

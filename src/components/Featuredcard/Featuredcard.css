@@ -17,11 +17,11 @@
 }
 . */
 .ha-link{
-    width: 27% !important;
+    width: 20% !important;
     text-decoration: none;
 }
  .zh-smcard{
-    width: 100%;
+    width: 50%;
     background-color: #FFFFFF;
     border-radius: 1.43rem 1.43rem ;
     box-shadow:.1rem .1rem #0000001A ;
@@ -42,9 +42,10 @@
 }
 
   .zh-smcard .zh-smcard-img img{
-    width: 90%;
+    width: 100%;
     border-radius: 1.43rem 1.43rem 0 0;
-    height: 10rem;
+    height: 5rem;
+    object-fit: scale-down;
 }
 
  .zh-smcard .zh-smcard-info .zh-h5-smscreen,.zh-h6-smscreen,.zh-btn-smscreen,.zh-img-smscreen{
@@ -55,7 +56,7 @@
     font-family: Montserrat;
     width: 90%;
     margin-top: 2%;
-    font-size:1.375rem;
+    font-size:0.775rem;
     font-weight: 600;
     letter-spacing: 0em;
     text-align: center;

@@ -12,7 +12,7 @@
     margin: auto;
 
     width: 90% !important;
-    color: #262626;
+    color: #262626 ;
     display: flex;
     flex-direction: column;
     /* gap: 20px; */
@@ -23,6 +23,21 @@
     top: 35%;
     right: 23%;
     margin-top: 5%;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>*{
+    --bs-table-bg-type: #fff;
+}
+@media (max-width:480px){
+.zh-table-mobile-answer{
+    font-size: .4rem !important;
+}
+}
+/* .table>tbody{
+    display: flex;
+    background-color: #fff;
+} */
+.zh-container-quiz h2{
+    width: 85% !important;
 }
 
 .zh-container-quiz .buttonback{
@@ -175,8 +190,9 @@
     margin-bottom: 0;
 }
 .ha-slider img{
-width: 100% !important;
-height: 10rem !important;
+width: 80% !important;
+/* height: 10rem !important; */
+height: max-content;
 }
 
 .zh-btn-text-quiz{
@@ -225,7 +241,7 @@ height: 10rem !important;
         
     }
     .zh-btn-text-quiz{
-        margin-top: 50px;
+        margin-top: 0px;
     }
     .ha-input-number{
 width: 250px !important;
@@ -248,7 +264,7 @@ width: 250px !important;
         z-index: 6;
     }
     .zh-btn-text-quiz{
-        margin-top: 35%;
+        margin-top: 0;
         justify-content: space-between;
         width:100% ;
         margin-right: 0 !important;
@@ -341,7 +357,7 @@ width: 250px !important;
     .zh-container-quiz .zh-ul li{
         /* width: 80%; */
         width: 48%;
-        padding: 4%;
+        /* padding: 4%; */
         height: 5vh;
         font-size: .7em;
         
@@ -376,7 +392,7 @@ width: 250px !important;
 
     .zh-container-quiz .zh-ul li{
         width: 48% !important;
-        padding: 4%;
+        /* padding: 4%; */
         height: 5vh;
         font-size: .7em;
         
@@ -484,6 +500,7 @@ width: 250px !important;
         flex-direction: column ;
         gap:20px;
         width: 100%;
+        margin: 0 !important;
     }
     .ha-reset{
         width:100% !important;

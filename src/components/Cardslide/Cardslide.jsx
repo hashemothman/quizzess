@@ -174,7 +174,7 @@ const Cardslide = (props) => {
     }, [hasRequestedAPI22]);
   return (
     <div className='React-slide'>
-      <h3 style={{textAlign:'right',width:'100%'}}>رياضة أحدث الاختبارات</h3>
+      <h3 style={{textAlign:'right',width:'100%'}}>رياضة  </h3>
 
         <Slider {...settings}>
         {/* <div> */}
@@ -184,7 +184,7 @@ const Cardslide = (props) => {
             ))}
    
   </Slider>
-  <h3 style={{textAlign:'right',width:'100%'}}>معلومات عامة أحدث الاختبارات</h3>
+  <h3 style={{textAlign:'right',width:'100%'}}>معلومات عامة </h3>
 
         <Slider {...settings}>
         {/* <div> */}
@@ -193,7 +193,7 @@ const Cardslide = (props) => {
         <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
             ))}
             </Slider>
-            <h3 style={{textAlign:'right',width:'100%'}}>جغرافيا أحدث الاختبارات</h3>
+            <h3 style={{textAlign:'right',width:'100%'}}>جغرافيا  </h3>
 
         <Slider {...settings}>
         {/* <div> */}
@@ -204,7 +204,7 @@ const Cardslide = (props) => {
    
   </Slider>
         {/* <div> */}
-        <h3 style={{textAlign:'right',width:'100%'}}>التصنيفات العالمية أحدث الاختبارات</h3>
+        <h3 style={{textAlign:'right',width:'100%'}}>التصنيفات العالمية  </h3>
 
         <Slider {...settings}>
 
@@ -214,7 +214,7 @@ const Cardslide = (props) => {
             ))}
    
   </Slider>
-  <h3 style={{textAlign:'right',width:'100%'}}>شعارات أحدث الاختبارات</h3>
+  <h3 style={{textAlign:'right',width:'100%'}}>شعارات  </h3>
 
         <Slider {...settings}>
 

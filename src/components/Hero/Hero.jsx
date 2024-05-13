@@ -9,7 +9,7 @@ const Hero = () => {
           <div className='zh-quiz-time'>
             {/* <h1>Quiz Time</h1> */}
           </div>
-          <h5 style={{width:'50%', textAlign:'center'}}>
+          <h5 style={{width:'100%', textAlign:'center'}}>
           مرحبًا بكم في موقعنا الذي يقدم أكبر مجموعة من الألعاب الثقافية والمسابقات! اختبر معلوماتك أو قم بإنشاء مسابقاتك الخاصة وشاركها مع العالم
           </h5>
         </div>

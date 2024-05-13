@@ -12,14 +12,13 @@ import Form from 'react-bootstrap/Form';
 import img2 from './../../assets/images/heroimg.jpg'
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
+import { useForm } from 'react-hook-form';
 
 
 
 const Quiz = () => {
 
-const Backclickzh =()=>{
-  window.history.back();
-}
+
 
 
 
@@ -666,7 +665,7 @@ useEffect(() => {
       return (
         <div style={{ height: '50vh',  width:'80%', margin:'10rem auto', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
            <Card style={{ width: '25rem' }}>
-      <Card.Img variant="top" src={url+quizTitle[0]?.image} style={{height:'25rem'}} />
+      <Card.Img variant="top" src={url+quizTitle[0]?.image} style={{height:'max-content'}} />
       <Card.Body style={{display:'flex',alignItems:'center', flexDirection:'column', width:'90%', margin:'10px auto'}}>
         <Card.Title style={{textAlign:'center'}}>{quizTitle[0]?.ar_name}</Card.Title>
         <Card.Text style={{textAlign:'center'}}>
@@ -697,7 +696,7 @@ useEffect(() => {
         <div className='zh-timer'>
         <p>Time {minutesString} : {secondsString}</p>
         </div>
-        <h2>{index+1}){survey === 'normal'?quizes[index ]?.question?.content:surveyname}</h2>
+        <h2 style={{fontSize:'1rem'}}>{survey === 'normal'?quizes[index ]?.question?.content:surveyname}</h2>
         {quizes[index ]?.question?.type === "one_select" && (
   <ul className='zh-ul'>
   {quizes[index]?.question?.ar_options?.map((quiz, i) => (
@@ -726,7 +725,7 @@ useEffect(() => {
   <Form.Control
     as="textarea"
     placeholder="Leave a comment here"
-    style={{ height: '150px', marginBottom: '40px' }}
+    style={{ height: '80px', marginBottom: '40px' }}
     value={userAnswer}
     onChange={handleInputChange}
     disabled={!isFormEnabled || isQuestionSubmitted} // تعطيل إدخال الإجابة بعد إجابة صحيحة أو تعطيل النموذج أو بعد الضغط على زر الإرسال
@@ -884,9 +883,10 @@ useEffect(() => {
       )}
 
     { survey === "top_ten" && (
-      <div>
-        <div style={{ position: 'sticky', top: '10%' , backgroundColor:'#fff'}}>
- <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}>
+      <div >
+        <div style={{ position: 'sticky', top: '0%' , backgroundColor:'#fff',width:'85%'}}>
+ <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}  >
+ 
   <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
     <Form.Control
       as="textarea"
@@ -895,6 +895,7 @@ useEffect(() => {
       value={userAnswer6}
       onChange={handleInputChange6}
       disabled={isQuestionSubmitted6}
+ 
     />
   </FloatingLabel>
   {showErrorMessage && (
@@ -918,70 +919,75 @@ useEffect(() => {
     </Button>
   )}
   {!isQuestionSubmitted6 && (
-    <Button className="buttonsend" type="submit" style={{ display: 'block' }}>
+    <Button className="buttonsend" type="submit" style={{ display: 'block' ,fontSize:'1.1rem'}}>
       إرسال
     </Button>
   )}
 </Form>
 </div>
         {quizes.map((survey, i) => (
-      <div key={i} id={i}>
+      <div style={{  height:'7vh'}}>
+      <div key={i} id={i} >
          
-        {survey.question?.type === 'text' && (
-          <div>
-          
-            <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped  borderless  style={{ width: '80%' }}>
-              <thead >
-                {i === 0 && (
-                  <tr>
-                    {/* <th style={{ width: '15%' ,backgroundColor:'#097bed',color:'#fff' }}>#</th> */}
-                    {survey.question?.content.map((title, index) => (
-                      <th key={index} style={{ width: '15%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff'  }}>{title}</th>
-                    ))}
-                    {survey.question?.answers.map((title, index) => (
-                      <th key={index} style={{ width: '25%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff' }}>{title}</th>
-                    ))}
-                  </tr>
-                )}
-              </thead>
-              <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : ''} >
-  {i !== 0 && (
-    <tr style={{ width: '100%', backgroundColor: 'green' }}>
-      {/* <td style={{ width: '15%' }}>{i}</td> */}
-      {survey.question?.content.map((value, index) => (
-        <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
-      ))}
-      <div style={{alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    width: '100%',
-    paddingRight: '20%'}}>
-      {survey?.question?.answers.map((value, index) => (
-        // <div key={index}>
-          <td className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
-          {answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? (
-  <span style={{ visibility: 'visible' }}>{value}</span>
-) : (
-  <span style={{ visibility: 'hidden' }}>{value}</span>
-)}
-          </td>
-        // </div>
-      ))}
+         {survey.question?.type === 'text' && (
+           <div >
+           
+             <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped  borderless  style={{ width: '80%' }}>
+               <thead >
+                 {i === 0 && (
+                   <tr>
+                     {/* <th style={{ width: '15%' ,backgroundColor:'#097bed',color:'#fff' }}>#</th> */}
+                     {survey.question?.content.map((title, index) => (
+                       <th key={index} style={{ width: '15%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff'  }}>{title}</th>
+                     ))}
+                     
+                     {survey.question?.answers.map((title, index) => (
+                       <th key={index} style={{ width: '15%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff' }}>{title}</th>
+                     ))}
+                   </tr>
+                 )}
+               </thead>
+               <tbody  className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true)  ? 'table-success' : ''} >
+   {i !== 0 && (
+     <tr style={{ width: '100%', backgroundColor: '#white' }}>
+       {/* <td style={{ width: '15%' }}>{i}</td> */}
+       {survey.question?.content.map((value, index) => (
+         <td key={index} style={{ width: '52%', textAlign: 'center' }}>{value}</td>
+       ))}
+       <div className='zh-table-mobile-answer' style={{alignItems: 'center',
+     display: 'flex',
+     justifyContent: 'space-evenly',
+     width: '100%',
+      fontSize:'.5rem',
+      paddingRight: '20%'}}>
+       {survey?.question?.answers.map((value, index) => (
+         // <div key={index}>
+           <td className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
+           {answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? (
+   <span style={{ visibility: 'visible' }}>{value}</span>
+ ) : (
+   <span style={{ visibility: 'hidden' }}>{value}</span>
+ )}
+           </td>
+         // </div>
+       ))}
+       </div>
+     </tr>
+   )}
+ </tbody>
+               
+               
+             </Table>
+           </div>
+         )}
+   </div>
       </div>
-    </tr>
-  )}
-</tbody>
-              
-            </Table>
-          </div>
-        )}
-  </div>
 ))}
       </div>
     )}
 
 
-        <div className='zh-btn-text-quiz' style={{marginRight:'5.625rem'}}>
+        <div className='zh-btn-text-quiz' >
         <button className='buttonnew' onClick={() => {
   if (survey === 'normal') {
     next();
@@ -998,7 +1004,7 @@ useEffect(() => {
   localStorage.removeItem('indexData');
 }}>{survey === 'normal'?(index+1 === quizes.length  ? 'اعطاء النتيجة' : 'السؤال التالي'):'اعطاء النتيجة'}</button>
 <div className='zh-index' style={{ textAlign: 'right' }}>
-  {survey === 'normal' ? `${index+1} الأسئلة من ${quizes.length}` : ''}
+  {survey === 'normal' ? `${index+1}  / ${quizes.length}` : ''}
 </div>        </div>
         </div>
         <img className='img-quiz' src={quizes[index]?.question?.image===null?img2:url+quizes[index]?.question?.image}/> 
@@ -1009,13 +1015,13 @@ useEffect(() => {
   <>
     <div className='zh-score-quiz'>
       <h3>اجابة صحيحة {trueCount} من {quizes.length}</h3>
-      <h1 style={{ margin: '25px auto' }}> نتائج الاختبار</h1>
+      {/* <h1 style={{ margin: '25px auto' }}> نتائج الاختبار</h1> */}
       <div className="ha-container-result" style={{ width: '80%', margin: '0 auto !important' }}>
         <div className="ha-row-result" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' ,width:'100%'}}>
-          <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' }}>
+          {/* <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' }}>
             <p style={{ width: "30%", textAlign: 'center' }}>نسبة الاجابات الصحيحة</p>
             <p style={{ width: "70%", textAlign: 'center' }}>السؤال</p>
-          </div>
+          </div> */}
           {resultAnswer.map((res_ans) => (
             <div className="ha-row-result" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)',width:'100%' }}>
               <ProgressBar now={res_ans.truth_percent} label={res_ans.truth_percent + '%'} style={{ width: "25%" }} />
@@ -1024,7 +1030,9 @@ useEffect(() => {
           ))}
         </div>
       </div>
-      <div className='ha-slider' style={{ width: '100%', margin: '70px auto' }}>
+      
+      <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا  </h5>
+      <div className='ha-slider' style={{ width: '100%', margin: '70px auto'}}>
         <Newquizslide id={quizTitle[0]?.category_id} onClick={reset}/>
       </div>
     
@@ -1084,22 +1092,23 @@ useEffect(() => {
     </div>
   ))}
 </div>
-      <h1 style={{ margin: '25px auto' }}> نتائج الاختبار</h1>
+      {/* <h1 style={{ margin: '25px auto' }}> نتائج الاختبار</h1> */}
       <div className="ha-container-result" style={{ width: '80%', margin: '0 auto !important' }}>
-        <div className="ha-row-result" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)',width:'100%' }}>
-          <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' }}>
+        {/* <div className="ha-row-result" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)',width:'100%' }}> */}
+          {/* <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' }}>
             <p style={{ width: "30%", textAlign: 'center' }}>نسبة الاجابات الصحيحة</p>
             <p style={{ width: "70%", textAlign: 'center' }}>السؤال</p>
-          </div>
-          {resultAnswer.map((res_ans) => (
+          </div> */}
+          {/* {resultAnswer.map((res_ans) => (
             <div className="ha-row-result" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' , width:'100%'}}>
               <ProgressBar now={res_ans.truth_percent} label={res_ans.truth_percent + '%'} style={{ width: "25%" }} />
               <p style={{ width: "70%" }}>{res_ans.question_content}</p>
             </div>
-          ))}
-        </div>
+          ))} */}
+        {/* </div> */}
       </div>
-      <div className='ha-slider' style={{ width: '100%', margin: '70px auto' }}>
+      <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
+      <div className='ha-slider' style={{ width: '100%', margin: '70px auto'}}>
         <Newquizslide id={quizTitle[0]?.category_id} link ='/new/quizpage' onClick={reset} />
       </div>
   
@@ -1112,9 +1121,9 @@ useEffect(() => {
   </>
 
 )  : null}   
-<a href='https://robquiz.com'>
+{/* <a href='https://robquiz.com'>
 <button className='buttonback' >Back</button> 
-</a>
+</a> */}
     </div>
 
 
