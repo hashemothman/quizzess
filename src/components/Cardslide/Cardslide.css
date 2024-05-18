@@ -38,16 +38,18 @@
     .slick-prev{
         /* display: block !important; */
         margin-left: 0px !important;
+        color: #fff !important;
     }
     .slick-next{
         /* display: block !important; */
         margin-right: 0px !important;
+        color: #fff !important;
     }
 }
 .slick-slide img{
     height: 5rem;
 }
 .slick-slider .slick-track, .slick-slider .slick-list{
-    height: 22rem;
+    height: 18rem;
 }
 

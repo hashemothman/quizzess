@@ -6,7 +6,8 @@
 
 .zh-quiz-page-container .img-quiz{
     /* margin: 12% 3%; */
-    width: 27%;
+    /* width: 27%; */
+    width: max-content;
     margin: 0;
 }
 
@@ -26,25 +27,29 @@
 
 @media (max-width:1090px){
     .zh-quiz-page-container .img-quiz{
-        width: 17em;
+        /* width: 17em; */
+        width: max-content;
     }
 }
 
 @media (max-width:930px){
     .zh-quiz-page-container .img-quiz{
-        width: 14em;
+        /* width: 14em; */
+        width: max-content;
     }
 }
 
 @media (max-width:770px){
     .zh-quiz-page-container .img-quiz{
-        width: 11.1em;
+        /* width: 11.1em; */
+        width: max-content;
     }
 }
 
 @media (max-width:600px){
     .zh-quiz-page-container .img-quiz{
-    height: 10rem;
+    /* height: 10rem; */
+    width: max-content;
     }
 
 }

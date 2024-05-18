@@ -5,6 +5,8 @@ import Quizpage from "../pages/Quizpage/Quizpage";
 import TestPage from "../pages/TestsPage/TestPage";
 import RandomPage from "../pages/Random/Random";
 import PopularPage from "../pages/Popular/PopularPage";
+import Quizes from "../pages/Quizes/Quizes";
+
 
 const router = createBrowserRouter(
     [
@@ -32,6 +34,9 @@ const router = createBrowserRouter(
         },
         {path:"/popular",
         element:<PopularPage/>
+        },
+        {path:"/quizzes",
+        element:<Quizes/>
         },
     ]
 )

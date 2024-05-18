@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 import Button from 'react-bootstrap/Button';
-
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react';
 
 import { faBars, faSearch, faTurnUp } from '@fortawesome/free-solid-svg-icons';
@@ -28,10 +30,14 @@ const Navbar = () => {
         </label>
         <label className='logo'><a href='/'>Rob<span>Quiz</span></a></label>
         <ul className='zh-nav-elements'>
+        <li><a href='/' onClick={handleMenuItemClick}>الصفحة الرئيسية</a></li>
+        <li><a href='/quizzes' onClick={handleMenuItemClick}>الاختبارات</a></li>
           <li><a href='/popular' onClick={handleMenuItemClick}>اشهر الاختبارات</a></li>
           <li><a href='/category' onClick={handleMenuItemClick}>الفئات</a></li>
-          <li><a href='/' onClick={handleMenuItemClick}>الصفحة الرئيسية</a></li>
+          
+          
         </ul>
+        
         <div>
           <Button variant="warning">
             <a
@@ -40,10 +46,11 @@ const Navbar = () => {
               rel='noopener noreferrer'
               style={{ padding: '10px 20px', textDecoration: 'none', color: 'blue' }}
             >
-              انشاء أختبار
+              إنشاء إختبار
             </a>
           </Button>
         </div>
+        
       </nav>
     </div>
   );

@@ -574,7 +574,7 @@ useEffect(() => {
     <Form.Control
       as="textarea"
       placeholder="Leave a comment here"
-      style={{ height: '150px', marginBottom: '40px' }}
+      style={{ marginBottom: '40px' }}
       value={userAnswer}
       onChange={handleInputChange}
       disabled={!isFormEnabled || isQuestionSubmitted} // تعطيل إدخال الإجابة بعد إجابة صحيحة أو تعطيل النموذج أو بعد الضغط على زر الإرسال
@@ -698,7 +698,7 @@ useEffect(() => {
       <Form.Control
         as="textarea"
         placeholder="Leave a comment here"
-        style={{ height: '100px', marginBottom: '40px' }}
+        style={{ height: '80px', marginBottom: '40px' }}
         value={userAnswer6}
         onChange={handleInputChange6}
         disabled={isQuestionSubmitted6}
@@ -742,7 +742,7 @@ useEffect(() => {
                     <tr>
                       {/* <th style={{ width: '15%' }}>#</th> */}
                       {survey.question?.content.map((title, index) => (
-                        <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
+                        <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
                       ))}
                       {survey.question?.answers.map((title, index) => (
                         <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
@@ -752,10 +752,11 @@ useEffect(() => {
                 </thead>
                 <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : ''} >
     {i !== 0 && (
-      <tr style={{ width: '100%', backgroundColor: 'green' }}>
+      <tr style={{ width: '100%', }}>
+      {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
         {/* <td style={{ width: '15%' }}>{i}</td> */}
         {survey.question?.content.map((value, index) => (
-          <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
+          <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
         ))}
         {survey?.question?.answers.map((value, index) => (
           <div key={index}>
@@ -781,7 +782,7 @@ useEffect(() => {
       )}
    
   
-          <div className='zh-btn-text-quiz' style={{marginRight:'5.625rem'}}>
+          <div className='zh-btn-text-quiz' >
           <button className='buttonnew' onClick={() => {
     survey === 'normal'?next():setResult(true);
     handleIncrement();
@@ -790,7 +791,7 @@ useEffect(() => {
   
   }}>{survey === 'normal'?(indexData === quizes.length  ? 'اعطاء النتيجة' : 'السؤال التالي'):'اعطاء النتيجة'}</button>
   <div className='zh-index' style={{ textAlign: 'right' }}>
-    {survey === 'normal' ? `${indexData} الأسئلة من ${quizes.length}` : ''}
+    {survey === 'normal' ? `${indexData}  / ${quizes.length}` : ''}
   </div>        </div>
           </div>
           <img className='img-quiz' src={quizes[indexData - 1]?.question?.image===null?img2:url+quizes[indexData - 1]?.question?.image}/> 
@@ -816,6 +817,7 @@ useEffect(() => {
             ))}
           </div>
         </div>
+        <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
         <div className='ha-slider' style={{ width: '85%', margin: '70px auto', marginRight: '-30px' }}>
           <Newquizslide />
         </div>
@@ -838,7 +840,7 @@ useEffect(() => {
                   <tr>
                     {/* <th style={{ width: '15%' }}>#</th> */}
                     {survey.question?.content.map((title, index) => (
-                      <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
+                      <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
                     ))}
                     {survey.question?.answers.map((title, index) => (
                       <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
@@ -848,10 +850,11 @@ useEffect(() => {
               </thead>
               <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : 'table-danger'}>
                 {i !== 0 && (
-                  <tr style={{ width: '100%', backgroundColor: 'green' }}>
+                  <tr style={{ width: '100%', }}>
+                  {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
                     {/* <td style={{ width: '15%' }}>{i}</td> */}
                     {survey.question?.content.map((value, index) => (
-                      <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
+                      <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
                     ))}
                     {survey?.question?.answers.map((value, index) => (
                       <td key={index} className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
@@ -883,6 +886,7 @@ useEffect(() => {
             ))}
           </div>
         </div>
+        <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
         <div className='ha-slider' style={{ width: '85%', margin: '70px auto', marginRight: '-30px' }}>
           <Newquizslide />
         </div>

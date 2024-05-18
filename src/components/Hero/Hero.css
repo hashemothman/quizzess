@@ -16,9 +16,11 @@
    align-items: center;
    width: 95%;
    margin: 50px auto 0;
-   height: 50vh;
+   height: 15vh;
    flex-direction: row-reverse;
 }
+
+
 
 .zh-hero-img{
    display: none;
@@ -84,7 +86,17 @@
    /* 100% {color: var(--main-color);} */
  }
 
+ @media (max-width:1222.4px){
+   .zh-hero .zh-hero-content h5{
+      font-size: 1rem;
+   }
+ }
+
 @media (max-width:750px){
+
+   .zh-hero .zh-hero-content h5{
+      font-size: .8rem;
+   }
    .zh-hero img{
        display: none;
        width: 0%;
@@ -106,6 +118,14 @@
        line-height: 20px;
    }
 
-
+   .zh-hero .zh-hero-content h5{
+      font-size: 1rem;
+   }
    
+}
+
+@media (max-width:465px){
+   .zh-hero .zh-hero-content h5{
+      font-size: 1rem;
+   }
 }

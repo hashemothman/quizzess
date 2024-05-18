@@ -6,14 +6,14 @@ import Featuredcard from '../../components/Featuredcard/Featuredcard.jsx';
 import Pagination from 'react-bootstrap/Pagination';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './CategoryStyle.css';
-import Slider from 'react-slick';
-import Newquiz from '../../components/Newquiz/Newquiz.jsx';
+import './QuizesStyle.css';
 
-const Category = () => {
+const Quizes = () => {
   const [isLoading, setIsLoading] = useState(true); // حالة لمؤشر التحميل
   const [categories, setCategories] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); // تعريف المتغير currentPage
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState(''); // حالة البحث
+  // تعريف المتغير currentPage
   const itemsPerPage = 2000; // عدد العناصر لكل صفحة
   const url = 'https://robert-api.lavetro-agency.com/storage/';
   const { id } = useParams();
@@ -21,7 +21,7 @@ const Category = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/categories`);
+        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/quizzes?q=${searchQuery}`);
         setCategories(response.data.data);
         console.log(response.data.data);
       } catch (error) {
@@ -32,40 +32,57 @@ const Category = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id,searchQuery]);
 
   // حساب الصفحة الحالية من البيجنيشن
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentCategories = categories.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(categories.length / itemsPerPage);
 
   // تغيير الصفحة عند الضغط على البيجنيشن
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearchQuery(event.target.value); // تحديث قيمة searchQuery عند تغيير حقل البحث
+  };
   return (
-    <>
-      <CatogeryHero title='Category' />
-      <h5 style={{textAlign:'center',marginTop:'5px'}} className='zh-h5-category'>اختباراتنا مقسمة الى فئات.اختر الفئة التي تحبها واختبر معلوماتك</h5>
+    <div style={{minHeight:'80vh'}}>
+      
+      <div style={{margin:"50px 0"}}>
+      <div className='zh-final-popular-text' style={{display:"flex",
+      flexDirection:"column",
+      alignItems:"center"}}>
+      <h4>جميع الاختبارات</h4>
+      <p>تحقق من الاختبارات الاكثر شعبية! اختبر معرفتك وتحدى نفسك</p>
+      </div>
+      </div>
       <div className="ha-serch">
-        <Form>
-          <Form.Group className="mt-5 mb-5 d-flex" controlId="formGroupEmail">
-            <Form.Control type="text" placeholder="Search" />
-            <Button variant="primary" className="ms-5 me-5" type="submit">
-              البحث
-            </Button>
-          </Form.Group>
-        </Form>
-        
+      <Form>
+      <Form.Group className="mt-5 mb-5 d-flex" controlId="formGroupEmail">
+        <Form.Control
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={handleSearch} // استدعاء handleSearch عند تغيير قيمة حقل البحث
+        />
+        <Button variant="primary" className="ms-5 me-5" type="button">
+          البحث
+        </Button>
+      </Form.Group>
+    </Form>
       </div>
       <div className="ha-category-card">
         {/* استخدام الفئات الحالية بدلاً من القائمة الكاملة */}
         {currentCategories.map((category) => (
           <Featuredcard
             id={category.id}
-            smcardimg1={url + category.image}
+            smcardimg1={url + category.image} 
             smcardimg1sm={url + category.image}
-            title1={category.name}
-            title1sm={category.name}
+            style={{display:'none'}}
+            title1={category.ar_name}
+
+            title1sm={category.ar_name}
             // desc1={'Question: '+ category.questions_count }
             // desc1sm='Hello world sm'
           />
@@ -75,18 +92,22 @@ const Category = () => {
       {/* <div className="ha-pagination">
         <Pagination>
           <Pagination.First onClick={() => paginate(1)} />
-          <Pagination.Prev onClick={() => paginate(currentPage - 1)} />
-          {[...Array(Math.ceil(categories.length / itemsPerPage)).keys()].map((number) => (
+          {currentPage !== 1 && (
+  <Pagination.Prev onClick={() => paginate(currentPage - 1)} />
+)}          {[...Array(Math.ceil(categories.length / itemsPerPage)).keys()].map((number) => (
             <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => paginate(number + 1)}>
               {number + 1}
             </Pagination.Item>
           ))}
-          <Pagination.Next onClick={() => paginate(currentPage + 1)} />
-          <Pagination.Last onClick={() => paginate(Math.ceil(categories.length / itemsPerPage))} />
+          {currentPage !== totalPages && (
+            <Pagination.Next onClick={() => paginate(currentPage + 1)} />
+          )}
+          {currentPage !== 1 && (
+          <Pagination.Last onClick={() => paginate(Math.ceil(categories.length / itemsPerPage))} />)}
         </Pagination>
       </div> */}
-    </>
+    </div>
   );
 }
 
-export default Category;
+export default Quizes;

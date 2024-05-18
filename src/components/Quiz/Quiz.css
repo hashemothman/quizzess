@@ -12,7 +12,7 @@
     margin: auto;
 
     width: 90% !important;
-    color: #262626;
+    color: #262626 ;
     display: flex;
     flex-direction: column;
     /* gap: 20px; */
@@ -24,6 +24,24 @@
     right: 23%;
     margin-top: 5%;
 }
+.table-striped>tbody>tr:nth-of-type(odd)>*{
+    --bs-table-bg-type: #fff;
+    font-size: .7em;
+}
+@media (max-width:480px){
+.zh-table-mobile-answer{
+    font-size: .4rem !important;
+}
+}
+/* .table>tbody{
+    display: flex;
+    background-color: #fff;
+} */
+/* .zh-container-quiz h2{
+    width: 85% !important;
+} */
+
+
 
 .zh-container-quiz .buttonback{
     background-color: var(--word-color);
@@ -50,6 +68,8 @@
 .zh-ul li{
     width: 48% !important;
     margin-right: 2% !important;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width:530px){
@@ -77,22 +97,23 @@
 }
 
 .zh-container-quiz .zh-ul{
-    margin-top: 5%;
+    margin-top: 0% !important;
 
 }
 
 .zh-container-quiz ul li{
     display: flex;
     align-items: center;
-    height: 10vh;
-    padding-left: 2%;
+    height: 7vh;
+    /* padding-left: 2%; */
+    text-align: center;
     border: 1px solid #d3c500;
     border-radius: 8px;
     margin-bottom: 3%;
     font-size: 20px;
     cursor: pointer;
     color: var(--paragraph-color);
-    padding: 20px;
+    padding: 20px 0px;
 
 }
 
@@ -103,14 +124,14 @@
     background: var(--word-color);
     border: none;
     color: #fff;
-    font-size: 1.5em;
+    font-size: .8em;
     font-weight: 500;
     border-radius: 8px;
     cursor: pointer;
 }
 .zh-container-quiz .buttonsend{
     margin: auto;
-    padding: 3.5%;
+    padding: 1.5%;
     border: none;
     color: #fff;
     font-size: 1.5em;
@@ -154,7 +175,7 @@
 
 
 .zh-timer{
-        width: 20%;
+        width: max-content;
         padding: 1%;
         background-color: var(--main-color);
         border-radius: 20px;
@@ -165,7 +186,7 @@
         text-align: center;
         color: #fff;
         transform: translateX(-50%);
-   
+        
 }
 
 .zh-timer p{
@@ -175,8 +196,9 @@
     margin-bottom: 0;
 }
 .ha-slider img{
-width: 100% !important;
-height: 10rem !important;
+width: 80% !important;
+/* height: 10rem !important; */
+height: max-content;
 }
 
 .zh-btn-text-quiz{
@@ -225,7 +247,7 @@ height: 10rem !important;
         
     }
     .zh-btn-text-quiz{
-        margin-top: 50px;
+        margin-top: 0px;
     }
     .ha-input-number{
 width: 250px !important;
@@ -248,7 +270,7 @@ width: 250px !important;
         z-index: 6;
     }
     .zh-btn-text-quiz{
-        margin-top: 35%;
+        margin-top: 0;
         justify-content: space-between;
         width:100% ;
         margin-right: 0 !important;
@@ -305,7 +327,7 @@ width: 250px !important;
 .zh-container-quiz ul li{
     display: flex;
     /* width: 100%; */
-    width: 48%;
+    width: 45%;
     align-items: center;
     height: 10vh;
     padding-left: 2%;
@@ -341,10 +363,10 @@ width: 250px !important;
     .zh-container-quiz .zh-ul li{
         /* width: 80%; */
         width: 48%;
-        padding: 4%;
+        /* padding: 4%; */
         height: 5vh;
         font-size: .7em;
-        
+        text-align: center;
     }
 }
 
@@ -371,15 +393,15 @@ width: 250px !important;
     }
 
     .zh-container-quiz .zh-ul{
-        height: 10em;
+        height: 6.4em !important;
     }
 
     .zh-container-quiz .zh-ul li{
         width: 48% !important;
-        padding: 4%;
-        height: 5vh;
+        /* padding: 4%; */
+        height: 3vh !important;
         font-size: .7em;
-        
+        text-align: center;
     }
 
     
@@ -470,7 +492,7 @@ width: 250px !important;
   }
   @media (max-width: 500px) {
     .zh-timer{
-        width: 30% !important;
+        width: 28% !important;
    
     }
     .card{
@@ -484,6 +506,7 @@ width: 250px !important;
         flex-direction: column ;
         gap:20px;
         width: 100%;
+        margin: 0% !important;
     }
     .ha-reset{
         width:100% !important;
@@ -517,4 +540,9 @@ width: 250px !important;
         }
     }
     
+    @media (max-width:400px){
+        .table-borderless>:not(caption)>*>* {
+            font-size: .8em;
+        }
+    }
 

@@ -12,7 +12,7 @@ const Trending = () => {
                 <title>Rob.Quiz website</title>
                 <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-        <h1>الاختبارات الشائعة</h1>
+        <h1 style={{textAlign:'right',width:'100%'}}>الاختبارات الشائعة</h1>
         
         <Cardslide img={newsimg}
             title="zhraa"
