@@ -694,7 +694,7 @@ useEffect(() => {
        
         <div className="ha-quez" style={{position:'relative'}}>
         <div className='zh-timer'>
-        <p>Time {minutesString} : {secondsString}</p>
+        <p> {minutesString} : {secondsString}</p>
         </div>
         <h2 style={{fontSize:'1rem'}}>{survey === 'normal'?quizes[index ]?.question?.content:surveyname}</h2>
         {quizes[index ]?.question?.type === "one_select" && (
@@ -938,7 +938,7 @@ useEffect(() => {
                    <tr>
                      {/* <th style={{ width: '15%' ,backgroundColor:'#097bed',color:'#fff' }}>#</th> */}
                      {survey.question?.content.map((title, index) => (
-                       <th key={index} style={{ width: '15%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff'  }}>{title}</th>
+                       <th key={index} style={{ width: '20%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff'  }}>{title}</th>
                      ))}
                      
                      {survey.question?.answers.map((title, index) => (
@@ -1032,8 +1032,8 @@ useEffect(() => {
       </div>
       
       <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا  </h5>
-      <div className='ha-slider' style={{ width: '100%', margin: '70px auto'}}>
-        <Newquizslide id={quizTitle[0]?.category_id} onClick={reset}/>
+      <div className='ha-slider' style={{ width: '62vw', margin: '70px auto'}}>
+        <Newquizslide  id={quizTitle[0]?.category_id} onClick={reset} style={{margin:'50px'}}/>
       </div>
     
       <a href='http://robquiz.com'>
@@ -1055,7 +1055,7 @@ useEffect(() => {
                 <tr>
                   {/* <th style={{ width: '15%' }}>#</th> */}
                   {survey.question?.content.map((title, index) => (
-                    <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
+                    <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
                   ))}
                   {survey.question?.answers.map((title, index) => (
                     <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
@@ -1065,11 +1065,12 @@ useEffect(() => {
             </thead>
             <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : 'table-danger'}>
               {i !== 0 && (
-                <tr style={{ width: '100%', backgroundColor: 'green' }}>
+                <tr style={{ width: '100%',}}>
+                {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
                   {/* <td style={{ width: '15%' }}>{i}</td> */}
                  
                   {survey.question?.content.map((value, index) => (
-                    <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
+                    <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
                   ))}
                    <div style={{alignItems: 'center',
     display: 'flex',
@@ -1108,7 +1109,7 @@ useEffect(() => {
         {/* </div> */}
       </div>
       <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
-      <div className='ha-slider' style={{ width: '100%', margin: '70px auto'}}>
+      <div className='ha-slider' style={{ width: '85%', margin: '70px auto', marginRight: '-30px'}}>
         <Newquizslide id={quizTitle[0]?.category_id} link ='/new/quizpage' onClick={reset} />
       </div>
   

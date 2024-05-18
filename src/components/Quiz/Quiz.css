@@ -26,6 +26,7 @@
 }
 .table-striped>tbody>tr:nth-of-type(odd)>*{
     --bs-table-bg-type: #fff;
+    font-size: .7em;
 }
 @media (max-width:480px){
 .zh-table-mobile-answer{
@@ -36,9 +37,11 @@
     display: flex;
     background-color: #fff;
 } */
-.zh-container-quiz h2{
+/* .zh-container-quiz h2{
     width: 85% !important;
-}
+} */
+
+
 
 .zh-container-quiz .buttonback{
     background-color: var(--word-color);
@@ -65,6 +68,8 @@
 .zh-ul li{
     width: 48% !important;
     margin-right: 2% !important;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width:530px){
@@ -92,22 +97,23 @@
 }
 
 .zh-container-quiz .zh-ul{
-    margin-top: 5%;
+    margin-top: 0% !important;
 
 }
 
 .zh-container-quiz ul li{
     display: flex;
     align-items: center;
-    height: 10vh;
-    padding-left: 2%;
+    height: 7vh;
+    /* padding-left: 2%; */
+    text-align: center;
     border: 1px solid #d3c500;
     border-radius: 8px;
     margin-bottom: 3%;
     font-size: 20px;
     cursor: pointer;
     color: var(--paragraph-color);
-    padding: 20px;
+    padding: 20px 0px;
 
 }
 
@@ -118,14 +124,14 @@
     background: var(--word-color);
     border: none;
     color: #fff;
-    font-size: 1.5em;
+    font-size: .8em;
     font-weight: 500;
     border-radius: 8px;
     cursor: pointer;
 }
 .zh-container-quiz .buttonsend{
     margin: auto;
-    padding: 3.5%;
+    padding: 1.5%;
     border: none;
     color: #fff;
     font-size: 1.5em;
@@ -169,7 +175,7 @@
 
 
 .zh-timer{
-        width: 20%;
+        width: max-content;
         padding: 1%;
         background-color: var(--main-color);
         border-radius: 20px;
@@ -180,7 +186,7 @@
         text-align: center;
         color: #fff;
         transform: translateX(-50%);
-   
+        
 }
 
 .zh-timer p{
@@ -321,7 +327,7 @@ width: 250px !important;
 .zh-container-quiz ul li{
     display: flex;
     /* width: 100%; */
-    width: 48%;
+    width: 45%;
     align-items: center;
     height: 10vh;
     padding-left: 2%;
@@ -360,7 +366,7 @@ width: 250px !important;
         /* padding: 4%; */
         height: 5vh;
         font-size: .7em;
-        
+        text-align: center;
     }
 }
 
@@ -387,15 +393,15 @@ width: 250px !important;
     }
 
     .zh-container-quiz .zh-ul{
-        height: 10em;
+        height: 6.4em !important;
     }
 
     .zh-container-quiz .zh-ul li{
         width: 48% !important;
         /* padding: 4%; */
-        height: 5vh;
+        height: 3vh !important;
         font-size: .7em;
-        
+        text-align: center;
     }
 
     
@@ -486,7 +492,7 @@ width: 250px !important;
   }
   @media (max-width: 500px) {
     .zh-timer{
-        width: 30% !important;
+        width: 28% !important;
    
     }
     .card{
@@ -500,7 +506,7 @@ width: 250px !important;
         flex-direction: column ;
         gap:20px;
         width: 100%;
-        margin: 0 !important;
+        margin: 0% !important;
     }
     .ha-reset{
         width:100% !important;
@@ -534,4 +540,9 @@ width: 250px !important;
         }
     }
     
+    @media (max-width:400px){
+        .table-borderless>:not(caption)>*>* {
+            font-size: .8em;
+        }
+    }
 

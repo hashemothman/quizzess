@@ -742,7 +742,7 @@ useEffect(() => {
                     <tr>
                       {/* <th style={{ width: '15%' }}>#</th> */}
                       {survey.question?.content.map((title, index) => (
-                        <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
+                        <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
                       ))}
                       {survey.question?.answers.map((title, index) => (
                         <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
@@ -752,10 +752,11 @@ useEffect(() => {
                 </thead>
                 <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : ''} >
     {i !== 0 && (
-      <tr style={{ width: '100%', backgroundColor: 'green' }}>
+      <tr style={{ width: '100%', }}>
+      {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
         {/* <td style={{ width: '15%' }}>{i}</td> */}
         {survey.question?.content.map((value, index) => (
-          <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
+          <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
         ))}
         {survey?.question?.answers.map((value, index) => (
           <div key={index}>
@@ -839,7 +840,7 @@ useEffect(() => {
                   <tr>
                     {/* <th style={{ width: '15%' }}>#</th> */}
                     {survey.question?.content.map((title, index) => (
-                      <th key={index} style={{ width: '15%', textAlign: 'center' }}>{title}</th>
+                      <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
                     ))}
                     {survey.question?.answers.map((title, index) => (
                       <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
@@ -849,10 +850,11 @@ useEffect(() => {
               </thead>
               <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : 'table-danger'}>
                 {i !== 0 && (
-                  <tr style={{ width: '100%', backgroundColor: 'green' }}>
+                  <tr style={{ width: '100%', }}>
+                  {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
                     {/* <td style={{ width: '15%' }}>{i}</td> */}
                     {survey.question?.content.map((value, index) => (
-                      <td key={index} style={{ width: '25%', textAlign: 'center' }}>{value}</td>
+                      <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
                     ))}
                     {survey?.question?.answers.map((value, index) => (
                       <td key={index} className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
