@@ -66,11 +66,11 @@ const Newquizslide = (props) => {
     fetchData();
   }, [id]);
   return (
-    <div className='React-slide'>
+    <div className='React-slide' >
         <Slider {...settings}>
         {quizes.map((quiz) => (
 
-          <Newquiz key={quiz.id} id={quiz.id} img={url + quiz.image} title={quiz.ar_name}  description={quiz.notes} answer ={quiz.answered_count} links={props.link}/>
+          <Newquiz key={quiz.id} id={quiz.id} img={url + quiz.image } title={quiz.ar_name}  description={quiz.notes} answer ={quiz.answered_count} links={props.link}/>
 
         ))}
         {/* <div>

@@ -77,8 +77,8 @@ const Quizes = () => {
         {currentCategories.map((category) => (
           <Featuredcard
             id={category.id}
-            // smcardimg1={url + category.image} 
-            // smcardimg1sm={url + category.image}
+            smcardimg1={url + category.image} 
+            smcardimg1sm={url + category.image}
             style={{display:'none'}}
             title1={category.ar_name}
 
