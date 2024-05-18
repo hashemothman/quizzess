@@ -16,7 +16,7 @@
    align-items: center;
    width: 95%;
    margin: 50px auto 0;
-   height: 25vh;
+   height: 15vh;
    flex-direction: row-reverse;
 }
 
@@ -88,14 +88,14 @@
 
  @media (max-width:1222.4px){
    .zh-hero .zh-hero-content h5{
-      font-size: .76rem;
+      font-size: 1rem;
    }
  }
 
 @media (max-width:750px){
 
    .zh-hero .zh-hero-content h5{
-      font-size: .56rem;
+      font-size: .8rem;
    }
    .zh-hero img{
        display: none;
@@ -119,13 +119,13 @@
    }
 
    .zh-hero .zh-hero-content h5{
-      font-size: .46rem;
+      font-size: 1rem;
    }
    
 }
 
 @media (max-width:465px){
    .zh-hero .zh-hero-content h5{
-      font-size: .36rem;
+      font-size: 1rem;
    }
 }

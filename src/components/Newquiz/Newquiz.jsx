@@ -16,7 +16,7 @@ const Newquiz = (props) => {
         <a href={`/new/quizpage/${props.id}`} onClick={handleClick}>
           <Card style={{ width: '13rem' }}>
             <Card.Img variant="top" src={props.img} style={{width:' 80%',
-    margin: '0 auto',}} />
+    margin: '0 auto',}} style2={props.style}/>
             <Card.Body style={{ textAlign: 'center' }}>
               <Card.Title>{props.title}</Card.Title>
               {/* <Card.Text>{props.description}</Card.Text> */}

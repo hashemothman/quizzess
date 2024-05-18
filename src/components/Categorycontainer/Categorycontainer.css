@@ -53,7 +53,7 @@
     
 }
 .React-slide{
-    width: 80vw;
+    /* width: 80vw; */
     margin: 0 auto;
 }
 
@@ -110,8 +110,16 @@
         width: 90%;
     }
     
+    .slick-initialized .slick-slide{
+        display: flex;
+        justify-content: center;
+        /* width: 316px !important; */
+        align-items: center;
+    }
 }
 .slick-initialized .slick-slide{
     display: flex;
+    /* justify-content: center; */
+    /* width: 208px !important; */
     align-items: center;
 }
