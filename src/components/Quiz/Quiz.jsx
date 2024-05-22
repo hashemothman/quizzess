@@ -926,13 +926,13 @@ useEffect(() => {
 </Form>
 </div>
         {quizes.map((survey, i) => (
-      <div style={{  height:'7vh'}}>
+      <div className='zh-sticky-bottom' style={{width:'52vw'}}>
       <div key={i} id={i} >
          
          {survey.question?.type === 'text' && (
            <div >
            
-             <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped  borderless  style={{ width: '80%' }}>
+             <Table className='table-Secondary' responsive="sm" id={survey.question?.type} style={{ width: '100%' }} striped  bordered hover variant="blue"  >
                <thead >
                  {i === 0 && (
                    <tr>
@@ -952,14 +952,15 @@ useEffect(() => {
      <tr style={{ width: '100%', backgroundColor: '#white' }}>
        {/* <td style={{ width: '15%' }}>{i}</td> */}
        {survey.question?.content.map((value, index) => (
-         <td key={index} style={{ width: '52%', textAlign: 'center' }}>{value}</td>
+         <td key={index} style={{ width: '62%', textAlign: 'center' ,color:'black'}}>{value}</td>
        ))}
        <div className='zh-table-mobile-answer' style={{alignItems: 'center',
      display: 'flex',
      justifyContent: 'space-evenly',
      width: '100%',
-      fontSize:'.5rem',
-      paddingRight: '20%'}}>
+      fontSize:'.5rem !important',
+      paddingRight: '20%',
+      borderLeft:'.2px solid gray'}}>
        {survey?.question?.answers.map((value, index) => (
          // <div key={index}>
            <td className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
@@ -1049,13 +1050,13 @@ useEffect(() => {
     <div key={i} id={i}>
       {survey.question?.type === 'text' && (
         <div>
-          <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped borderless style={{ width: '100%' }}>
+          <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped bordered style={{ width: '100%' }}>
             <thead>
               {i === 0 && (
                 <tr>
                   {/* <th style={{ width: '15%' }}>#</th> */}
                   {survey.question?.content.map((title, index) => (
-                    <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
+                    <th key={index} style={{ width: '37.5%', textAlign: 'center' }}>{title}</th>
                   ))}
                   {survey.question?.answers.map((title, index) => (
                     <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
@@ -1070,7 +1071,7 @@ useEffect(() => {
                   {/* <td style={{ width: '15%' }}>{i}</td> */}
                  
                   {survey.question?.content.map((value, index) => (
-                    <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
+                    <td key={index} style={{ width: '60%', textAlign: 'center',fontSize:'.7em' ,fontSize:'1rem'}} className='zh-score-next'>{value}</td>
                   ))}
                    <div style={{alignItems: 'center',
     display: 'flex',
