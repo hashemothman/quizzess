@@ -14,11 +14,11 @@ const Footer = () => {
         <h3>تواصل معنا </h3>
         {/* <p>للمزيد حول مواقعنا</p> */}
             <div className='footer-icons'>
-                <a href="https://www.facebook.com/share/8YVsXymp8FzXMCFq/?mibextid=LQQJ4d" target="_blank"><img src={facebook} style={{width:'24px', height:'26px'}}/></a>
-                <a href="http://www.instagram.com/rob.quiz?igsh=Y2R4dXkyaXpkbXJs" target="_blank"><img src={instaicon} style={{width:'26px', height:'26px'}}/></a>
-                <a href="https://www.tiktok.com/@rob.quiz?_t=8lxIMYQGYD4&_r=1" target="_blank"><img src={whatsapp} style={{width:'26px', height:'26px'}}/></a>
-                <a href="https://youtube.com/@Rob.Quiz1?si=Tu8pGNqhw0PI98Hk" target="_blank"><img src={youtube} style={{width:'26px', height:'26px'}}/></a>
-                <a href="https://Rakrouch@gmail.com" target="_blank"><img src={email} style={{width:'26px', height:'26px'}}/></a>
+                <a href="https://www.facebook.com/share/8YVsXymp8FzXMCFq/?mibextid=LQQJ4d" target="_b_blank"><img src={facebook} style={{width:'24px', height:'26px'}}/></a>
+                <a href="http://www.instagram.com/rob.quiz?igsh=Y2R4dXkyaXpkbXJs" target="_b_blank"><img src={instaicon} style={{width:'26px', height:'26px'}}/></a>
+                <a href="https://www.tiktok.com/@rob.quiz?_t=8lxIMYQGYD4&_r=1" target="_b_blank"><img src={whatsapp} style={{width:'26px', height:'26px'}}/></a>
+                <a href="https://youtube.com/@Rob.Quiz1?si=Tu8pGNqhw0PI98Hk" target="_b_blank"><img src={youtube} style={{width:'26px', height:'26px'}}/></a>
+                <a href="https://Rakrouch@gmail.com" target="_b_blank"><img src={email} style={{width:'26px', height:'26px'}}/></a>
             </div>
         </div>
         {/* <div className='footertwo'>
