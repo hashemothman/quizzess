@@ -17,22 +17,26 @@ const Quizes = () => {
   const itemsPerPage = 2000; // عدد العناصر لكل صفحة
   const url = 'https://robert-api.lavetro-agency.com/storage/';
   const { id } = useParams();
+  const [first, setfirst] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if(first){
         const response = await axios.get(`https://robert-api.lavetro-agency.com/api/quizzes?q=${searchQuery}`);
         setCategories(response.data.data);
         console.log(response.data.data);
+      }
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false); // إخفاء مكون التحميل بعد الانتهاء
+        setIsLoading(false);
+        setfirst(false) // إخفاء مكون التحميل بعد الانتهاء
       }
     };
 
     fetchData();
-  }, [id,searchQuery]);
+  }, [id,first]);
 
   // حساب الصفحة الحالية من البيجنيشن
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -42,9 +46,13 @@ const Quizes = () => {
 
   // تغيير الصفحة عند الضغط على البيجنيشن
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const handleSearch = (event) => {
-    event.preventDefault();
-    setSearchQuery(event.target.value); // تحديث قيمة searchQuery عند تغيير حقل البحث
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setfirst(true)
+    
+  };
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
   };
   return (
     <div style={{minHeight:'80vh'}}>
@@ -58,15 +66,15 @@ const Quizes = () => {
       </div>
       </div>
       <div className="ha-serch">
-      <Form>
+      <Form onSubmit={handleSearch}>
       <Form.Group className="mt-5 mb-5 d-flex" controlId="formGroupEmail">
         <Form.Control
           type="text"
           placeholder="Search"
           value={searchQuery}
-          onChange={handleSearch} // استدعاء handleSearch عند تغيير قيمة حقل البحث
+          onChange={handleInputChange}
         />
-        <Button variant="primary" className="ms-5 me-5" type="button">
+        <Button variant="primary" className="ms-5 me-5" type="submit">
           البحث
         </Button>
       </Form.Group>

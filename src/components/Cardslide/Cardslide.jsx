@@ -50,16 +50,19 @@ const Cardslide = (props) => {
       const [isLoading23, setIsLoading23] = useState(true); // حالة لمؤشر التحميل
       const [isLoading22, setIsLoading22] = useState(true); // حالة لمؤشر التحميل
       const [isLoading11, setIsLoading11] = useState(true); // حالة لمؤشر التحميل
+      const [isLoadingp, setIsLoadingp] = useState(true); // حالة لمؤشر التحميل
       const [hasRequestedAPI, setHasRequestedAPI] = useState(false);
       const [hasRequestedAPI21, setHasRequestedAPI21] = useState(false);
       const [hasRequestedAPI23, setHasRequestedAPI23] = useState(false);
       const [hasRequestedAPI22, setHasRequestedAPI22] = useState(false);
       const [hasRequestedAPI11, setHasRequestedAPI11] = useState(false);
+      const [hasRequestedAPIp, setHasRequestedAPIp] = useState(false);
       const [categories, setCategories] = useState([]);
       const [categories21, setCategories21] = useState([]);
       const [categories23, setCategories23] = useState([]);
       const [categories22, setCategories22] = useState([]);
       const [categories11, setCategories11] = useState([]);
+      const [popular, setPopular] = useState([]);
       const url = 'https://robert-api.lavetro-agency.com/storage/';
       const { id } = useParams();
       useEffect(() => {
@@ -106,6 +109,29 @@ const Cardslide = (props) => {
         fetchData();
       }
     }, [hasRequestedAPI21]);
+      useEffect(() => {
+        if (!hasRequestedAPIp) {
+          setIsLoadingp(true);
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes/popular');
+            setPopular(response.data.data);
+            setHasRequestedAPIp(true);
+
+            // console.log(response.data.data);
+            // console.log(categories[0].id);
+    
+          } catch (error) {
+            // console.error(error);
+          }finally {
+            setIsLoadingp(false); // إخفاء مكون التحميل بعد الانتهاء
+          }
+        };
+    
+        fetchData();
+      }
+    }, [hasRequestedAPIp]);
+   
       useEffect(() => {
         if (!hasRequestedAPI11) {
           setIsLoading11(true);
@@ -172,8 +198,17 @@ const Cardslide = (props) => {
         fetchData();
       }
     }, [hasRequestedAPI22]);
+    console.log(popular)
   return (
     <div className='React-slide'>
+       <Slider {...settings}>
+        {/* <div> */}
+        {popular.map((category) => (
+        
+        <Newquiz key={category.id} id={category.id} img={url + category.image} title={category.ar_name}   links={props.link}/>
+            ))}
+   
+  </Slider>
       <h3 style={{textAlign:'right',width:'100%'}}>رياضة  </h3>
 
         <Slider {...settings}>

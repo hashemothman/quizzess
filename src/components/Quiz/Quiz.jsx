@@ -12,7 +12,7 @@ import Form from 'react-bootstrap/Form';
 import img2 from './../../assets/images/heroimg.jpg'
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 
 
 
@@ -384,7 +384,8 @@ const [userAnswer6, setUserAnswer6] = useState('');
 const [isAnswerCorrect6, setIsAnswerCorrect6] = useState(true);
 const [isQuestionSubmitted6, setIsQuestionSubmitted6] = useState(false);
 const [showErrorMessage, setShowErrorMessage] = useState(false);
-
+const [answerTop, setanswerTop] = useState([]);
+// console.log(answerTop)
 const handleSubmit6 = (e) => {
   e.preventDefault();
 
@@ -393,10 +394,13 @@ const handleSubmit6 = (e) => {
 
   const value = validateAnswer6(userAnswer);
   const question_id = Object.keys(answer).find(key => answer[key].some(item => item.toLowerCase().trim() === userAnswer.toLowerCase().trim()));
-
+const answerten =userAnswer;
   if (question_id) {
     const answerRecord = { question_id, value };
     setAnswersArray(prev => [...prev, answerRecord]);
+const checkAnserTen = { question_id, value,userAnswer };
+setanswerTop(prev => [...prev, checkAnserTen]);
+
 
     if (value) {
       setIsAnswerCorrect6(true);
@@ -498,10 +502,10 @@ const next1 = () => {
 
   setIndex(index + 1);
   setQuestion(quizes[index + 1]);
-  setIsFormEnabled(true);
-  setIsQuestionSubmitted(false);
-  setIsAnswerCorrect(true);
-  setUserAnswer('');
+  setIsFormEnabled1(true);
+  setIsQuestionSubmitted1(false);
+  setIsAnswerCorrect1(true);
+  setUserAnswer1('');
 };
 
 
@@ -960,17 +964,17 @@ useEffect(() => {
      width: '100%',
       fontSize:'.5rem',
       paddingRight: '20%'}}>
-       {survey?.question?.answers.map((value, index) => (
-         // <div key={index}>
+       {/* {survey?.question?.answers.map((value, index) => ( */}
+         {/* // <div key={index}> */}
            <td className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
            {answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? (
-   <span style={{ visibility: 'visible' }}>{value}</span>
+   <span style={{ visibility: 'visible' }}>{answerTop.find(answer =>answer.question_id == survey?.question?.id)?.userAnswer ||null}</span>
  ) : (
-   <span style={{ visibility: 'hidden' }}>{value}</span>
+   <span style={{ visibility: 'hidden' }}>{null}</span>
  )}
            </td>
-         // </div>
-       ))}
+          {/* </div> */}
+       {/* ))} */}
        </div>
      </tr>
    )}
@@ -1076,12 +1080,15 @@ useEffect(() => {
     justifyContent: 'space-evenly',
     width: '100%',
     paddingRight: '20%'}}>
-                  {survey?.question?.answers.map((value, index) => (
-                    <td key={index} className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
-                        <span style={{ visibility: 'visible' }}>{value}</span>
-                      
-                    </td>
-                  ))}
+<td key={index} className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
+  {answersArray.find(answer => answer.question_id === survey?.question?.id && answer.userAnswer === true) ? (
+    <span style={{ visibility: 'visible' }}>{answerTop.find(answer => answer.question_id === survey?.question?.id)?.userAnswer || null}</span>
+  ) : (
+    
+      <span key={index} style={{ visibility: 'visible' }}>{survey?.question?.answers[0]}</span>
+    
+  )}
+</td>
                   </div>
                 </tr>
               )}
