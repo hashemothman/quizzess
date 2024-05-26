@@ -951,42 +951,35 @@ useEffect(() => {
                    </tr>
                  )}
                </thead>
-               <tbody  className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true)  ? 'table-success' : ''} >
-   {i !== 0 && (
-     <tr style={{ width: '100%', backgroundColor: '#white' }}>
-       {/* <td style={{ width: '15%' }}>{i}</td> */}
-       {survey.question?.content.map((value, index) => (
-         <td key={index} style={{ width: '62%', textAlign: 'center' ,color:'black'}}>{value}</td>
-       ))}
-       <div className='zh-table-mobile-answer' style={{alignItems: 'center',
-     display: 'flex',
-     justifyContent: 'space-evenly',
-     width: '100%',
-<<<<<<< HEAD
-      fontSize:'.5rem',
-      paddingRight: '20%'}}>
-       {/* {survey?.question?.answers.map((value, index) => ( */}
-         {/* // <div key={index}> */}
-=======
-      fontSize:'.5rem !important',
-      paddingRight: '20%',
-      borderLeft:'.2px solid gray'}}>
-       {survey?.question?.answers.map((value, index) => (
-         // <div key={index}>
->>>>>>> 15825e56a207964eca82d5bb2b09178d201dcc17
-           <td className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
-           {answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? (
-   <span style={{ visibility: 'visible' }}>{answerTop.find(answer =>answer.question_id == survey?.question?.id)?.userAnswer ||null}</span>
- ) : (
-   <span style={{ visibility: 'hidden' }}>{null}</span>
- )}
-           </td>
-          {/* </div> */}
-       {/* ))} */}
-       </div>
-     </tr>
-   )}
- </tbody>
+               <tbody className={answersArray.find(answer => answer.question_id === survey?.question?.id && answer.value === true) ? 'table-success' : ''}>
+  {i !== 0 && (
+    <tr style={{ width: '100%', backgroundColor: 'white' }}>
+      {survey.question?.content.map((value, index) => (
+        <td key={index} style={{ width: '62%', textAlign: 'center', color: 'black' }}>
+          {value}
+        </td>
+      ))}
+      <td className="zh-table-mobile-answer" style={{
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        width: '100%',
+        paddingRight: '20%',
+        fontSize: '.5rem !important',
+        borderLeft: '.2px solid gray'
+      }}>
+        {survey?.question?.answers.map((value, index) => (
+          <div key={index} className="ho-td-mobile" style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
+            {answersArray.find(answer => answer.question_id === survey?.question?.id && answer.value === true) ? (
+              <span style={{ visibility: 'visible' }}>{answerTop.find(answer => answer.question_id === survey?.question?.id)?.userAnswer || null}</span>
+            ) : (
+              <span style={{ visibility: 'hidden' }}>{null}</span>
+            )}
+          </div>
+        ))}
+      </td>
+    </tr>
+  )}
+</tbody>
                
                
              </Table>

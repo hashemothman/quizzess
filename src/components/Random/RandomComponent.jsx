@@ -856,142 +856,141 @@ useEffect(() => {
     <Button onClick={handleFormEnable1}>
       تمكين النموذج
     </Button>
-<<<<<<< HEAD
   )} */}
 </Form>
-=======
-    {/* {!isFormEnabled2 && (
-      <Button onClick={handleFormEnable2}>
-        تمكين النموذج
-      </Button>
-    )} */}
-  </Form>
-  )}
+// =======
+//     {/* {!isFormEnabled2 && (
+//       <Button onClick={handleFormEnable2}>
+//         تمكين النموذج
+//       </Button>
+//     )} */}
+//   </Form>
+//   )}
   
-  {quizes[indexData - 1]?.question?.type === "number" && (
+//   {quizes[indexData - 1]?.question?.type === "number" && (
   
-  <Form onSubmit={handleSubmit1} disabled={!isFormEnabled1} style={{display:'flex',flexDirection:'column',margin:'20px 0'}}>
-  <input
-        type="text"
-        inputMode="numeric"
-        pattern="[0-9]*"
-        placeholder="الاجابة"
-        style={{
-          height: '100px',
-          marginBottom: '40px',
-          borderRadius: '10px',
-          padding: '10px',
-        }}
-        value={userAnswer1}
-        onChange={handleInputChange1}
-        disabled={!isFormEnabled1 || isQuestionSubmitted1}
-      />
-    {isQuestionSubmitted1 && (
-      <Alert variant={isAnswerCorrect1 ? 'success' : 'danger'}>
-        {isAnswerCorrect1 ? 'إجابة صحيحة.' : 'إجابة خاطئة.'}
-      </Alert>
-    )}
-    <Button className='buttonsend' type="submit" disabled={!isFormEnabled1 || isQuestionSubmitted1} style={{textAlign:"center",display: isFormEnabled1 && !isQuestionSubmitted1 ? 'block' : 'none' }}>
-      إرسال
-    </Button>
-    {/* {!isFormEnabled1 && (
-      <Button onClick={handleFormEnable1}>
-        تمكين النموذج
-      </Button>
-    )} */}
-  </Form>
-        )}
+//   <Form onSubmit={handleSubmit1} disabled={!isFormEnabled1} style={{display:'flex',flexDirection:'column',margin:'20px 0'}}>
+//   <input
+//         type="text"
+//         inputMode="numeric"
+//         pattern="[0-9]*"
+//         placeholder="الاجابة"
+//         style={{
+//           height: '100px',
+//           marginBottom: '40px',
+//           borderRadius: '10px',
+//           padding: '10px',
+//         }}
+//         value={userAnswer1}
+//         onChange={handleInputChange1}
+//         disabled={!isFormEnabled1 || isQuestionSubmitted1}
+//       />
+//     {isQuestionSubmitted1 && (
+//       <Alert variant={isAnswerCorrect1 ? 'success' : 'danger'}>
+//         {isAnswerCorrect1 ? 'إجابة صحيحة.' : 'إجابة خاطئة.'}
+//       </Alert>
+//     )}
+//     <Button className='buttonsend' type="submit" disabled={!isFormEnabled1 || isQuestionSubmitted1} style={{textAlign:"center",display: isFormEnabled1 && !isQuestionSubmitted1 ? 'block' : 'none' }}>
+//       إرسال
+//     </Button>
+//     {/* {!isFormEnabled1 && (
+//       <Button onClick={handleFormEnable1}>
+//         تمكين النموذج
+//       </Button>
+//     )} */}
+//   </Form>
+//         )}
        
      
-      { survey === "top_ten" && (
-        <div>
-   <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}>
-    <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '100px' }}>
-      <Form.Control
-        as="textarea"
-        placeholder="Leave a comment here"
-        style={{ height: '80px', marginBottom: '40px' }}
-        value={userAnswer6}
-        onChange={handleInputChange6}
-        disabled={isQuestionSubmitted6}
-      />
-    </FloatingLabel>
-    {showErrorMessage && (
-      <Alert variant="danger">
-        حاول مرة أخرى.
-      </Alert>
-    )}
-    {isAnswerCorrect6 && isQuestionSubmitted6 && (
-      <Alert variant="success">
-        إجابة صحيحة.
-      </Alert>
-    )}
-    {!isAnswerCorrect6 && isQuestionSubmitted6 && (
-      <Alert variant="danger">
-        إجابة خاطئة.
-      </Alert>
-    )}
-    {isQuestionSubmitted6 && (
-      <Button className="buttonsend" onClick={handleFormReset6} style={{ display: 'block' }}>
-        إعادة
-      </Button>
-    )}
-    {!isQuestionSubmitted6 && (
-      <Button className="buttonsend"  type="submit" style={{ display: 'block' }}>
-        إرسال
-      </Button>
-    )}
-  </Form>
-          {quizes.map((survey, i) => (
-        <div key={i} id={i}>
+//       { survey === "top_ten" && (
+//         <div>
+//    <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}>
+//     <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '100px' }}>
+//       <Form.Control
+//         as="textarea"
+//         placeholder="Leave a comment here"
+//         style={{ height: '80px', marginBottom: '40px' }}
+//         value={userAnswer6}
+//         onChange={handleInputChange6}
+//         disabled={isQuestionSubmitted6}
+//       />
+//     </FloatingLabel>
+//     {showErrorMessage && (
+//       <Alert variant="danger">
+//         حاول مرة أخرى.
+//       </Alert>
+//     )}
+//     {isAnswerCorrect6 && isQuestionSubmitted6 && (
+//       <Alert variant="success">
+//         إجابة صحيحة.
+//       </Alert>
+//     )}
+//     {!isAnswerCorrect6 && isQuestionSubmitted6 && (
+//       <Alert variant="danger">
+//         إجابة خاطئة.
+//       </Alert>
+//     )}
+//     {isQuestionSubmitted6 && (
+//       <Button className="buttonsend" onClick={handleFormReset6} style={{ display: 'block' }}>
+//         إعادة
+//       </Button>
+//     )}
+//     {!isQuestionSubmitted6 && (
+//       <Button className="buttonsend"  type="submit" style={{ display: 'block' }}>
+//         إرسال
+//       </Button>
+//     )}
+//   </Form>
+//           {quizes.map((survey, i) => (
+//         <div key={i} id={i}>
            
-          {survey.question?.type === 'text' && (
-            <div>
+//           {survey.question?.type === 'text' && (
+//             <div>
             
-              <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped  borderless  style={{ width: '100%' }}>
-                <thead >
-                  {i === 0 && (
-                    <tr>
-                      {/* <th style={{ width: '15%' }}>#</th> */}
-                      {survey.question?.content.map((title, index) => (
-                        <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
-                      ))}
-                      {survey.question?.answers.map((title, index) => (
-                        <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
-                      ))}
-                    </tr>
-                  )}
-                </thead>
-                <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : ''} >
-    {i !== 0 && (
-      <tr style={{ width: '100%', }}>
-      {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
-        {/* <td style={{ width: '15%' }}>{i}</td> */}
-        {survey.question?.content.map((value, index) => (
-          <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
-        ))}
-        {survey?.question?.answers.map((value, index) => (
-          <div key={index}>
-            <td className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
-            {answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? (
-    <span style={{ visibility: 'visible' }}>{value}</span>
-  ) : (
-    <span style={{ visibility: 'hidden' }}>{value}</span>
-  )}
-            </td>
-          </div>
-        ))}
-      </tr>
-    )}
-  </tbody>
+//               <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped  borderless  style={{ width: '100%' }}>
+//                 <thead >
+//                   {i === 0 && (
+//                     <tr>
+//                       {/* <th style={{ width: '15%' }}>#</th> */}
+//                       {survey.question?.content.map((title, index) => (
+//                         <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
+//                       ))}
+//                       {survey.question?.answers.map((title, index) => (
+//                         <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
+//                       ))}
+//                     </tr>
+//                   )}
+//                 </thead>
+//                 <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : ''} >
+//     {i !== 0 && (
+//       <tr style={{ width: '100%', }}>
+//       {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
+//         {/* <td style={{ width: '15%' }}>{i}</td> */}
+//         {survey.question?.content.map((value, index) => (
+//           <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
+//         ))}
+//         {survey?.question?.answers.map((value, index) => (
+//           <div key={index}>
+//             <td className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
+//             {answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? (
+//     <span style={{ visibility: 'visible' }}>{value}</span>
+//   ) : (
+//     <span style={{ visibility: 'hidden' }}>{value}</span>
+//   )}
+//             </td>
+//           </div>
+//         ))}
+//       </tr>
+//     )}
+//   </tbody>
                 
-              </Table>
-            </div>
-          )}
-    </div>
-  ))}
-        </div>
->>>>>>> 15825e56a207964eca82d5bb2b09178d201dcc17
+//               </Table>
+//             </div>
+//           )}
+//     </div>
+//   ))}
+//         </div>
+// >>>>>>> 15825e56a207964eca82d5bb2b09178d201dcc17
       )}
 
     { survey === "top_ten" && (
@@ -1141,89 +1140,9 @@ useEffect(() => {
             </div>
           ))}
         </div>
-<<<<<<< HEAD
-=======
-        <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
-        <div className='ha-slider' style={{ width: '85%', margin: '70px auto', marginRight: '-30px' }}>
-          <Newquizslide />
-        </div>
-        <a href='http://robquiz.com'>
-  <button className='buttonnew ha-reset'>العودة الى الرئيسية</button>
-</a> 
-      </div>
-    </>
-  ) : ((result || time === 0) && survey === 'top_ten') ? (
-    <>
-       <div className='zh-score-quiz'>
-       <div style={{width:'80%'}}>
-    {quizes.map((survey, i) => (
-      <div key={i} id={i}>
-        {survey.question?.type === 'text' && (
-          <div>
-            <Table className='table-Secondary' responsive="sm" id={survey.question?.type} striped borderless style={{ width: '100%' }}>
-              <thead>
-                {i === 0 && (
-                  <tr>
-                    {/* <th style={{ width: '15%' }}>#</th> */}
-                    {survey.question?.content.map((title, index) => (
-                      <th key={index} style={{ width: '20%', textAlign: 'center' }}>{title}</th>
-                    ))}
-                    {survey.question?.answers.map((title, index) => (
-                      <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
-                    ))}
-                  </tr>
-                )}
-              </thead>
-              <tbody className={answersArray.find(answer => answer.question_id == survey?.question?.id && answer.value === true) ? 'table-success' : 'table-danger'}>
-                {i !== 0 && (
-                  <tr style={{ width: '100%', }}>
-                  {/* <tr style={{ width: '100%', backgroundColor: 'green' }}> */}
-                    {/* <td style={{ width: '15%' }}>{i}</td> */}
-                    {survey.question?.content.map((value, index) => (
-                      <td key={index} style={{ width: '25%', textAlign: 'center',fontSize:'.7em' }}>{value}</td>
-                    ))}
-                    {survey?.question?.answers.map((value, index) => (
-                      <td key={index} className='ho-td-mobile' style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
-                          <span style={{ visibility: 'visible' }}>{value}</span>
-                        
-                      </td>
-                    ))}
-                  </tr>
-                )}
-              </tbody>
-            </Table>
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-        <h1 style={{ margin: '25px auto' }}> نتائج الاختبار</h1>
-        <div className="ha-container-result" style={{ width: '80%', margin: '0 auto !important' }}>
-          <div className="ha-row-result" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' }}>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' }}>
-              <p style={{ width: "30%", textAlign: 'center' }}>نسبة الاجابات الصحيحة</p>
-              <p style={{ width: "70%", textAlign: 'center' }}>السؤال</p>
-            </div>
-            {resultAnswer.map((res_ans) => (
-              <div className="ha-row-result" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: "5px", margin: "2px", borderBottom: '1px solid var(--heading-color)' }}>
-                <ProgressBar now={res_ans.truth_percent} label={res_ans.truth_percent + '%'} style={{ width: "25%" }} />
-                <p style={{ width: "70%" }}>{res_ans.question_content}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا</h5>
-        <div className='ha-slider' style={{ width: '85%', margin: '70px auto', marginRight: '-30px' }}>
-          <Newquizslide />
-        </div>
-        <a href='http://robquiz.com'>
-  <button className='buttonnew ha-reset'>العودة الى الرئيسية</button>
-</a> 
-      </div>
-    </>
-  ) : null} 
-             
->>>>>>> 15825e56a207964eca82d5bb2b09178d201dcc17
+
+
+
       </div>
       
       <h5>اذا اعجبك هذا الاختبار ,يمكنك لعب هذه الاختبارات ايضا  </h5>
