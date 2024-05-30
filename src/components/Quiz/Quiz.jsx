@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import {  useParams,useNavigate } from 'react-router-dom';
+import {  useParams,useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import '../Newquizslide/Newquizslide.css';
 import './Quiz.css'
@@ -12,6 +12,7 @@ import Form from 'react-bootstrap/Form';
 import img2 from './../../assets/images/heroimg.jpg'
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
+// import Backbutton from './../Backbutton/Backbutton'
 // import { useForm } from 'react-hook-form';
 
 
@@ -723,13 +724,13 @@ useEffect(() => {
 
 {(quizes[index]?.question?.type === "text") && (survey === 'normal') &&(
 
-<Form onSubmit={handleSubmit} disabled={!isFormEnabled} style={{display:'flex',flexDirection:'column',margin:'20px 0'}}>
+<Form onSubmit={handleSubmit} disabled={!isFormEnabled} style={{display:'flex',flexDirection:'column'}}>
 <FloatingLabel controlId="floatingTextarea2" label="الاجابة"  style={{ width: '100%' }}
   >
   <Form.Control
     as="textarea"
     placeholder="Leave a comment here"
-    style={{ height: '80px', marginBottom: '40px' }}
+    style={{ height: '40px', marginBottom: '17px' }}
     value={userAnswer}
     onChange={handleInputChange}
     disabled={!isFormEnabled || isQuestionSubmitted} // تعطيل إدخال الإجابة بعد إجابة صحيحة أو تعطيل النموذج أو بعد الضغط على زر الإرسال
@@ -781,7 +782,7 @@ useEffect(() => {
   </ul>
 )}
 {quizes[index]?.question?.type === "range" && (
-  <Form onSubmit={handleSubmit2} disabled={!isFormEnabled2} style={{display:'flex',flexDirection:'column',margin:'20px 0'}}>
+  <Form onSubmit={handleSubmit2} disabled={!isFormEnabled2} style={{display:'flex',flexDirection:'column'}}>
   <div className="ha-range">
     <label htmlFor="customRange2" className="form-label" style={{display:"flex",direction:'rtl'}}>
       نطاق الإجابة
@@ -842,15 +843,15 @@ useEffect(() => {
 
 {quizes[index]?.question?.type === "number" && (
 
-<Form onSubmit={handleSubmit1} disabled={!isFormEnabled1} style={{display:'flex',flexDirection:'column',margin:'20px 0'}}>
+<Form onSubmit={handleSubmit1} disabled={!isFormEnabled1} style={{display:'flex',flexDirection:'column'}}>
 <input
       type="text"
       inputMode="numeric"
       pattern="[0-9]*"
       placeholder="الاجابة"
       style={{
-        height: '100px',
-        marginBottom: '40px',
+        height: '40px',
+        marginBottom: '17px',
         borderRadius: '10px',
         padding: '10px',
       }}
@@ -888,7 +889,7 @@ useEffect(() => {
 
     { survey === "top_ten" && (
       <div >
-        <div style={{ position: 'sticky', top: '0%' , backgroundColor:'#fff',width:'85%'}}>
+        <div style={{ position: 'sticky', top: '0%' , backgroundColor:'#fff',width:'60vw'}}>
  <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}  >
  
   <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
@@ -930,7 +931,7 @@ useEffect(() => {
 </Form>
 </div>
         {quizes.map((survey, i) => (
-      <div className='zh-sticky-bottom' style={{width:'52vw'}}>
+      <div className='zh-sticky-bottom' style={{width:'60vw'}}>
       <div key={i} id={i} >
          
          {survey.question?.type === 'text' && (
@@ -942,11 +943,11 @@ useEffect(() => {
                    <tr>
                      {/* <th style={{ width: '15%' ,backgroundColor:'#097bed',color:'#fff' }}>#</th> */}
                      {survey.question?.content.map((title, index) => (
-                       <th key={index} style={{ width: '20%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff'  }}>{title}</th>
+                       <th key={index} style={{ width: '20%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff',borderStyle:'hidden'  }}>{title}</th>
                      ))}
                      
                      {survey.question?.answers.map((title, index) => (
-                       <th key={index} style={{ width: '15%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff' }}>{title}</th>
+                       <th key={index} style={{ width: '15%', textAlign: 'center',backgroundColor:'#097bed',color:'#fff',borderStyle:'hidden' }}>{title}</th>
                      ))}
                    </tr>
                  )}
@@ -1063,10 +1064,10 @@ useEffect(() => {
                 <tr>
                   {/* <th style={{ width: '15%' }}>#</th> */}
                   {survey.question?.content.map((title, index) => (
-                    <th key={index} style={{ width: '37.5%', textAlign: 'center' }}>{title}</th>
+                    <th key={index} style={{ width: '37.5%', textAlign: 'center',borderStyle:'hidden' }}>{title}</th>
                   ))}
                   {survey.question?.answers.map((title, index) => (
-                    <th key={index} style={{ width: '25%', textAlign: 'center' }}>{title}</th>
+                    <th key={index} style={{ width: '25%', textAlign: 'center',borderStyle:'hidden' }}>{title}</th>
                   ))}
                 </tr>
               )}
@@ -1133,9 +1134,12 @@ useEffect(() => {
   </>
 
 )  : null}   
-{/* <a href='https://robquiz.com'>
-<button className='buttonback' >Back</button> 
+{/* <a >
+<button className='buttonback' >back</button> 
 </a> */}
+<Link className='buttonback' to="#" onClick={() => window.history.back()}>
+        ارجع
+      </Link>
     </div>
 
 
