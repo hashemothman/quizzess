@@ -84,6 +84,7 @@ const Quizes = () => {
         {/* استخدام الفئات الحالية بدلاً من القائمة الكاملة */}
         {currentCategories.map((category) => (
           <Featuredcard
+          type='quizz'
             id={category.id}
             smcardimg1={url + category.image} 
             smcardimg1sm={url + category.image}
