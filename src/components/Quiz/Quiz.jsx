@@ -782,7 +782,7 @@ useEffect(() => {
   </ul>
 )}
 {quizes[index]?.question?.type === "range" && (
-  <Form onSubmit={handleSubmit2} disabled={!isFormEnabled2} style={{display:'flex',flexDirection:'column'}}>
+  <Form onSubmit={handleSubmit2} disabled={!isFormEnabled2} style={{display:'flex',flexDirection:'column',margin:'2px 0'}}>
   <div className="ha-range">
     <label htmlFor="customRange2" className="form-label" style={{display:"flex",direction:'rtl'}}>
       نطاق الإجابة
@@ -843,7 +843,7 @@ useEffect(() => {
 
 {quizes[index]?.question?.type === "number" && (
 
-<Form onSubmit={handleSubmit1} disabled={!isFormEnabled1} style={{display:'flex',flexDirection:'column'}}>
+<Form onSubmit={handleSubmit1} disabled={!isFormEnabled1} style={{display:'flex',flexDirection:'column',margin:'5px 0'}}>
 <input
       type="text"
       inputMode="numeric"
@@ -889,7 +889,7 @@ useEffect(() => {
 
     { survey === "top_ten" && (
       <div >
-        <div style={{ position: 'sticky', top: '0%' , backgroundColor:'#fff',width:'60vw'}}>
+        <div style={{ position: 'sticky', top: '20%' , backgroundColor:'#fff',width:'60vw'}}>
  <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}  >
  
   <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
@@ -957,7 +957,7 @@ useEffect(() => {
      <tr style={{ width: '100%', backgroundColor: '#white' }}>
        {/* <td style={{ width: '15%' }}>{i}</td> */}
        {survey.question?.content.map((value, index) => (
-         <td key={index} style={{ width: '62%', textAlign: 'center' ,color:'black'}}>{value}</td>
+         <td key={index} style={{ width: '44%', textAlign: 'center' ,color:'black'}}>{value}</td>
        ))}
        <div className='zh-table-mobile-answer' style={{alignItems: 'center',
      display: 'flex',
@@ -966,7 +966,7 @@ useEffect(() => {
 
       paddingRight: '20%',
 
-      fontSize:'.5rem !important',
+      fontSize:'.5rem',
       paddingRight: '20%',
       borderLeft:'.2px solid gray'}}>
        {/* {survey?.question?.answers.map((value, index) => ( */}
@@ -1137,9 +1137,9 @@ useEffect(() => {
 {/* <a >
 <button className='buttonback' >back</button> 
 </a> */}
-<Link className='buttonback' to="#" onClick={() => window.history.back()}>
+{/* <Link className='buttonback' to="#" onClick={() => window.history.back()}>
         ارجع
-      </Link>
+      </Link> */}
     </div>
 
 

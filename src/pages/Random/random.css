@@ -6,8 +6,8 @@
 
 .zh-quiz-page-container .img-quiz{
     margin: 3% 2%;
-    /* width: 50%; */
-    width: max-content;
+    width: 50%;
+    /* width: max-content; */
     height: 20rem;
     object-fit: contain;
 }
@@ -30,6 +30,7 @@
     .zh-quiz-page-container .img-quiz{
         /* width: 20em !important; */
         width: max-content;
+        width: 50%;
     }
 }
 
@@ -37,6 +38,7 @@
     .zh-quiz-page-container .img-quiz{
         /* width: 14em; */
         width: max-content;
+        width: 50%;
     }
 }
 
@@ -44,6 +46,7 @@
     .zh-quiz-page-container .img-quiz{
         /* width: 10rem !important; */
         width: max-content;
+        width: 50%;
         margin: 6% 3%;
     }
 }
@@ -54,5 +57,6 @@
     } */
     .zh-quiz-page-container .img-quiz{
         height: 7.3rem;
+        width: 50%;
     }
 }
