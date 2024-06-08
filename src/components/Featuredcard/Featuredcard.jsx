@@ -45,7 +45,7 @@ const Featuredcard = (props) => {
     // const class1 = "zh-smcards-container"
   return (
     // <div className={props.class || class1 }>
-    <Link to={`/category/test/${props.id}`} className='ha-link' >
+    <Link to={props.type== 'quizz'?`/quizpage/${props.id}`:`/category/test/${props.id}`} className='ha-link' >
     
     <div className='zh-smcard'>
         <div className='zh-smcard-img'>
