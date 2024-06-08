@@ -277,7 +277,7 @@ width: 250px !important;
     }
    
     .table-striped>tbody>tr:nth-of-type(odd)>*{
-        font-size: .7rem;
+        font-size: .7rem !important;
     }
 
     
@@ -336,6 +336,10 @@ width: 250px !important;
         font-size: .8em;
     }
 
+    .sticky-zh-fixed{
+        position: fixed !important;
+        top: 0% !important;
+    }
     
 }
 .zh-container-quiz .zh-ul{
