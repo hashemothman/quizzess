@@ -15,13 +15,13 @@ const Category = () => {
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // تعريف المتغير currentPage
   const itemsPerPage = 2000; // عدد العناصر لكل صفحة
-  const url = 'https://robert-api.lavetro-agency.com/storage/';
+  const url = 'https://api.robquiz.com/storage/';
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/categories`);
+        const response = await axios.get(`https://api.robquiz.com/api/categories`);
         setCategories(response.data.data);
         console.log(response.data.data);
       } catch (error) {

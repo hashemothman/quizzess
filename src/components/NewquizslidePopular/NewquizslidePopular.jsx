@@ -45,13 +45,13 @@ const NewquizslidePopular = () => {
       };
       const [quizes, setQuizes] = useState([]);
       const [isLoading, setIsLoading] = useState(true); // حالة لمؤشر التحميل
-  const url = 'https://robert-api.lavetro-agency.com/storage/';
+  const url = 'https://api.robquiz.com/storage/';
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/quizzes/popular`);
+        const response = await axios.get(`https://api.robquiz.com/api/quizzes/popular`);
         setQuizes(response.data.data);
         // console.log(response.data.data);
       } catch (error) {

@@ -144,7 +144,7 @@
         position: absolute;
         z-index: 4;
         left: 50%;
-        top: -3%;
+        top: -1em;
         text-align: center;
         color: #fff;
         transform: translateX(-50%);
@@ -196,7 +196,7 @@
             font-size: 1.5em;
         }
         .zh-timer{
-            top: -3%;
+            top: -1em;
         }
     }
     
@@ -264,7 +264,7 @@
         .zh-timer {
             width: 45% !important;
     
-            top:-2.5%;
+            top:-1em;
         }
     
         .zh-table-mobile-answer{
@@ -276,7 +276,12 @@
         .zh-container-quiz ul li{
             height: 3vh !important;
         }
-        
+        .sticky-zh-fixed{
+            /* position: fixed !important; */
+            /* top: 6.5% !important; */
+            background-color: #fff !important;
+            /* border-radius: 8px; */
+        }
     }
     .zh-container-quiz .zh-ul{
         margin-top: 5%;
@@ -358,7 +363,7 @@
     
         .zh-timer{
             font-size: .8em;
-            top: -1%;
+            top: -1em;
         }
     
         .zh-container-quiz .zh-ul{

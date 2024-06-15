@@ -14,14 +14,14 @@ const Container = (props) => {
   const [isLoading, setIsLoading] = useState(true); // حالة لمؤشر التحميل
   const [hasRequestedAPI, setHasRequestedAPI] = useState(false);
 
-  const url = 'https://robert-api.lavetro-agency.com/storage/';
+  const url = 'https://api.robquiz.com/storage/';
   const { id } = useParams();
   useEffect(() => {
     if (!hasRequestedAPI) {
       setIsLoading(true);
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes/featured');
+        const response = await axios.get('https://api.robquiz.com/api/quizzes/featured');
         setCategories(response.data.data);
         setHasRequestedAPI(true);
         // console.log(response.data.data);

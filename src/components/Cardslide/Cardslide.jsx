@@ -63,14 +63,15 @@ const Cardslide = (props) => {
       const [categories22, setCategories22] = useState([]);
       const [categories11, setCategories11] = useState([]);
       const [popular, setPopular] = useState([]);
-      const url = 'https://robert-api.lavetro-agency.com/storage/';
+      const url = 'https://api.robquiz.com/storage/';
+      // const url = 'api.robquiz.com/api'
       const { id } = useParams();
       useEffect(() => {
         if (!hasRequestedAPI) {
           setIsLoading(true);
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=10');
+            const response = await axios.get('https://api.robquiz.com/api/quizzes?category_id=10');
             setCategories(response.data.data);
             setHasRequestedAPI(true);
 
@@ -92,7 +93,7 @@ const Cardslide = (props) => {
           setIsLoading21(true);
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=21');
+            const response = await axios.get('https://api.robquiz.com/api/quizzes?category_id=21');
             setCategories21(response.data.data);
             setHasRequestedAPI21(true);
 
@@ -114,7 +115,7 @@ const Cardslide = (props) => {
           setIsLoadingp(true);
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes/popular');
+            const response = await axios.get('https://api.robquiz.com/api/quizzes/popular');
             setPopular(response.data.data);
             setHasRequestedAPIp(true);
 
@@ -137,7 +138,7 @@ const Cardslide = (props) => {
           setIsLoading11(true);
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=11');
+            const response = await axios.get('https://api.robquiz.com/api/quizzes?category_id=11');
             setCategories11(response.data.data);
             setHasRequestedAPI11(true);
 
@@ -159,7 +160,7 @@ const Cardslide = (props) => {
           setIsLoading23(true);
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=23');
+            const response = await axios.get('https://api.robquiz.com/api/quizzes?category_id=23');
             setCategories23(response.data.data);
             setHasRequestedAPI23(true);
 
@@ -181,7 +182,7 @@ const Cardslide = (props) => {
           setIsLoading23(true);
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://robert-api.lavetro-agency.com/api/quizzes?category_id=22');
+            const response = await axios.get('https://api.robquiz.com/api/quizzes?category_id=22');
             setCategories22(response.data.data);
             setHasRequestedAPI22(true);
 

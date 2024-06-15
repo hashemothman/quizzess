@@ -210,7 +210,7 @@
         position: absolute;
         z-index: 4;
         left: 50%;
-        top: -3%;
+        top: -1em;
         text-align: center;
         color: #fff;
         transform: translateX(-50%);
@@ -249,7 +249,7 @@ height: max-content;
         font-size: 1.5em;
     }
     .zh-timer{
-        top: -3%;
+        top: -1em;
     }
 }
 
@@ -337,8 +337,10 @@ width: 250px !important;
     }
 
     .sticky-zh-fixed{
-        position: fixed !important;
-        top: 0% !important;
+        /* position: fixed !important; */
+        /* top: 6.5% !important; */
+        background-color: #fff !important;
+        /* border-radius: 8px; */
     }
     
 }
@@ -571,3 +573,19 @@ width: 250px !important;
         }
     }
 
+/* Existing styles */
+
+#textarea-answer {
+    resize: none; /* Prevent vertical resizing */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+  }
+  
+  
+  
+  /* Media query for smaller screens (adjust as needed) */
+  /* @media (max-width: 768px) {
+    .sticky-zh-fixed {
+      height: calc(100vh - 100px); 
+    }
+  } */
+  

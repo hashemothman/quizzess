@@ -18,11 +18,59 @@ import Card from 'react-bootstrap/Card';
 
 
 const Quiz = () => {
-  const handleFocus = () => {
-    // setIsInputSticky(true);
-    style.position='sticky'
-    style.top='12%'
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [prevIsKeyboardOpen, setPrevIsKeyboardOpen] = useState(false);
+  const [stickyTop, setStickyTop] = useState('12%');
+  // const [textareaHeight, setTextareaHeight] = useState('70px'); 
+  const inputRef = React.createRef();
+  useEffect(() => {
+    const handleResize = () => {
+      const screenHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      setIsKeyboardOpen(screenHeight < documentHeight);
+    };
+    if (prevIsKeyboardOpen !== isKeyboardOpen) {
+      handleResize();
+      if (isKeyboardOpen) {
+        // alert('Keyboard Opened!');
+        setStickyTop('40%')
+      }else {
+        
+        setStickyTop('0%'); // Reset top to 0% when keyboard closes
+      }
+      // setStickyTop('0%')
+    }
+    
+    setPrevIsKeyboardOpen(isKeyboardOpen);
+
+ 
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll',handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+      window.addEventListener('scroll',handleResize)
+
+    }; // Cleanup function
+  }, [isKeyboardOpen]);
+
+  const handleTextareaFocus = () => {
+    setIsKeyboardOpen(true);
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }, 0);
   };
+
+  const handleTextareaBlur = () => {
+    setIsKeyboardOpen(false);
+  };
+
+
 
 
 
@@ -32,7 +80,7 @@ const Quiz = () => {
   const [quizes, setQuizes] = useState([]);
   const [quizesTime, setQuizesTime] = useState([]);
   const [resultAnswer, setResultAnswer] = useState([]);
-  const url = 'https://robert-api.lavetro-agency.com/storage/';
+  const url = 'https://api.robquiz.com/storage/';
   const { id } = useParams();
   const { testTime } = useParams();
   // console.log(id);
@@ -51,7 +99,7 @@ const Quiz = () => {
   useEffect(() => {
     const fetchDatatime = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/quizzes/random`);
+        const response = await axios.get(`https://api.robquiz.com/api/quizzes/random`);
         const surveyTimer = response.data?.survey?.timer;
         const title = response.data?.survey;
         const quzId = response.data?.survey.id;
@@ -566,7 +614,7 @@ useEffect(() => {
     };
 
     // قم بإجراء استدعاء Axios بصيغة POST
-    axios.post(`https://robert-api.lavetro-agency.com/api/survey/${sorveId}/answer`, postData, {
+    axios.post(`https://api.robquiz.com/api/survey/${sorveId}/answer`, postData, {
       headers: {
         "Accept": 'application/json',
         'Content-Type': 'application/json',
@@ -591,7 +639,7 @@ useEffect(() => {
   const fetchData = async () => {
     if ((!isRequestSent.current && answersArray.length === quizes.length && result) || (!isRequestSent.current && time === 0 && result)|| (!isRequestSent.current&&result)) {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/survey/${sorveId}/answers`);
+        const response = await axios.get(`https://api.robquiz.com/api/survey/${sorveId}/answers`);
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
         isRequestSent.current = true; // قم بتعيين قيمة isRequestSent.current إلى true هنا إذا كنت ترغب في ذلك
@@ -634,7 +682,7 @@ useEffect(() => {
         try {
           if((!start)){
             console.log(sorveId)
-          const response = await axios.get(`https://robert-api.lavetro-agency.com/api/survey/show/${sorveId}`);
+          const response = await axios.get(`https://api.robquiz.com/api/survey/show/${sorveId}`);
           setQuizes(response.data.survey_details)
           }
         } catch (error) {
@@ -1001,9 +1049,9 @@ useEffect(() => {
 
     { survey === "top_ten" && (
       <div >
-        <div style={{ position: 'sticky', top: '12%' , backgroundColor:'#fff',width:'80vw'}}
+        <div className='sticky-zh-fixed' style={{ position: 'sticky', top: stickyTop , backgroundColor:'#fff',width:'80vw',zIndex:'4',height:'max-content'}}
         >
- <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}  >
+ <Form onSubmit={handleSubmit6} style={{ display: 'flex',marginBottom:'2px', justifyContent: 'space-between' }}  >
  
   <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
     <Form.Control
@@ -1013,7 +1061,9 @@ useEffect(() => {
       value={userAnswer6}
       onChange={handleInputChange6}
       disabled={isQuestionSubmitted6}
- 
+      onFocus={handleTextareaFocus}
+              onBlur={handleTextareaBlur}
+              ref={inputRef}
     />
   </FloatingLabel>
   {showErrorMessage && (
@@ -1127,7 +1177,16 @@ useEffect(() => {
   {survey === 'normal' ? `${index+1}  / ${quizes.length}` : ''}
 </div>        </div>
         </div>
-        <img className='img-quiz' src={quizes[index]?.question?.image===null?img2:url+quizes[index]?.question?.image}/> 
+        {/* <img className='img-quiz' src={quizes[index]?.question?.image===null?img2:url+quizes[index]?.question?.image}/>  */}
+        <img
+    className="img-quiz"
+    src={url + quizes[index]?.question?.image}
+    style={{ display: quizes[index]?.question?.image ? "block" : "none" }}
+  />
+  <div style={{ display: quizes[index]?.question?.image ? "none" : "block" }}>
+    {/* محتوى بديل (اختياري) */}
+  </div>
+{/* // </div> */}
 </div>
         </>}
        

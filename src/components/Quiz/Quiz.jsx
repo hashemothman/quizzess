@@ -19,7 +19,173 @@ import Card from 'react-bootstrap/Card';
 
 const Quiz = () => {
 
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [prevIsKeyboardOpen, setPrevIsKeyboardOpen] = useState(false);
+  const [stickyTop, setStickyTop] = useState('12%');
+  const [textareaHeight, setTextareaHeight] = useState('70px'); 
+  const inputRef = React.createRef();
+  useEffect(() => {
+    const handleResize = () => {
+      const screenHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      setIsKeyboardOpen(screenHeight < documentHeight);
+    };
+    if (prevIsKeyboardOpen !== isKeyboardOpen) {
+      handleResize();
+      if (isKeyboardOpen) {
+        // alert('Keyboard Opened!');
+        setStickyTop('40%')
+      }
+      // setStickyTop('0%')
+    }
+    
+    setPrevIsKeyboardOpen(isKeyboardOpen);
 
+   
+
+    window.addEventListener('resize', handleResize);
+    // window.addEventListener('scroll', handleScroll);
+    // window.addEventListener('scroll',handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      // window.removeEventListener('scroll', handleScroll);
+      // window.addEventListener('scroll',handleResize)
+
+    }; // Cleanup function
+  }, [isKeyboardOpen]);
+
+  const handleTextareaFocus = () => {
+    setIsKeyboardOpen(true);
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }, 0);
+  };
+
+  const handleTextareaBlur = () => {
+    
+      setIsKeyboardOpen(false);
+      // setStickyTop('12%');
+    
+  };
+  // const [stickyTop, setStickyTop] = useState('12%');
+  // const [textareaHeight, setTextareaHeight] = useState('70px');
+  // const textareaRef = useRef(null);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.scrollY;
+  //     if (scrollTop > 500) {
+  //       setStickyTop('0');
+  //     } else {
+  //       setStickyTop('12%');
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
+
+  // useEffect(() => {
+  //   const textarea = textareaRef.current;
+
+  //   const handleFocus = () => {
+  //     const viewportHeight = window.innerHeight;
+  //     const textareaTop = textarea.getBoundingClientRect().top;
+  //     const bottomDistance = viewportHeight - textareaTop - parseInt(textareaHeight, 10);
+
+  //     if (bottomDistance < 100) {
+  //       setTextareaHeight(`${viewportHeight - 100}px`);
+  //     }
+  //   };
+
+  //   const handleBlur = () => {
+  //     setTextareaHeight('70px');
+  //   };
+
+  //   if (textarea) {
+  //     textarea.addEventListener('focus', handleFocus);
+  //     textarea.addEventListener('blur', handleBlur);
+  //   }
+
+  //   return () => {
+  //     if (textarea) {
+  //       textarea.removeEventListener('focus', handleFocus);
+  //       textarea.removeEventListener('blur', handleBlur);
+  //     }
+  //   };
+  // }, []);
+
+  // return (
+  //   <div>
+  //     <textarea
+  //       id="textarea-answer"
+  //       ref={textareaRef}
+  //       style={{ height: textareaHeight }}
+  //     />
+  //   </div>
+  // );
+
+  // const [stickyTop, setStickyTop] = useState('12%');
+  // const [textareaHeight, setTextareaHeight] = useState('70px'); 
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.scrollY;
+  //     if (scrollTop > 500) {
+  //       setStickyTop('0'); 
+  //     } else {
+  //       setStickyTop('12%'); 
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => window.removeEventListener('scroll', handleScroll); 
+  // }, []);
+
+  // useEffect(() => {
+  //   const textarea = document.getElementById('textarea-answer');
+  //   textarea.addEventListener('focus', () => {
+  //     const viewportHeight = window.innerHeight;
+  //     const textareaTop = textarea.getBoundingClientRect().top;
+  //     const bottomDistance = viewportHeight - textareaTop - textareaHeight;
+
+  //     if (bottomDistance < 100) { // Adjust the threshold as needed
+  //       setTextareaHeight(viewportHeight - 100); // Set textarea height to avoid overlapping keyboard
+  //     }
+  //   });
+
+  //   textarea.addEventListener('blur', () => {
+  //     setTextareaHeight('70px'); // Reset textarea height to initial value
+  //   });
+
+  //   return () => {
+  //     textarea.removeEventListener('focus');
+  //     textarea.removeEventListener('blur');
+  //   };
+  // }, []);
+
+
+  // const [stickyTop, setStickyTop] = useState('12%');
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.scrollY;
+  //     if (scrollTop > 100) {
+  //       setStickyTop('0'); // Set top to 0% when scrolled past 500px
+  //     } else {
+  //       setStickyTop('12%'); // Reset top to 12% otherwise
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => window.removeEventListener('scroll', handleScroll); // Cleanup function
+  // }, []);
 
   // const [isInputSticky, setIsInputSticky] = useState({position:'sticky',top:'12%'});
 
@@ -39,7 +205,7 @@ const Quiz = () => {
   const [quizes, setQuizes] = useState([]);
   const [quizesTime, setQuizesTime] = useState([]);
   const [resultAnswer, setResultAnswer] = useState([]);
-  const url = 'https://robert-api.lavetro-agency.com/storage/';
+  const url = 'https://api.robquiz.com/storage/';
   const { id } = useParams();
   const { testTime } = useParams();
   // console.log(id);
@@ -52,7 +218,7 @@ const Quiz = () => {
   useEffect(() => {
     const fetchDatatime = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/survey/show/${id}`);
+        const response = await axios.get(`https://api.robquiz.com/api/survey/show/${id}`);
         const surveyTimer = response.data?.survey[0]?.timer;
         const title = response.data?.survey;
         
@@ -83,7 +249,7 @@ console.log(quizTitle)
     if (!dataFetched) {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`https://robert-api.lavetro-agency.com/api/survey/show/${id}`);
+          const response = await axios.get(`https://api.robquiz.com/api/survey/show/${id}`);
           await new Promise((resolve) => setTimeout(resolve, 3000));
           setQuizes(response.data.survey_details);
           setDataFetched(true);
@@ -103,7 +269,7 @@ console.log(quizTitle)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/survey/show/${id}`);
+        const response = await axios.get(`https://api.robquiz.com/api/survey/show/${id}`);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         const surveyType = response.data?.survey[0]?.survey_type;
         const surveyName = response.data?.survey[0]?.ar_name;
@@ -125,7 +291,7 @@ console.log(quizTitle)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/survey/show/${id}`);
+        const response = await axios.get(`https://api.robquiz.com/api/survey/show/${id}`);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         let surveyAnswer = [];
         for (let i = 0; i < response.data.survey_details?.length; i++) {
@@ -613,7 +779,7 @@ useEffect(() => {
     };
 
     // قم بإجراء استدعاء Axios بصيغة POST
-    axios.post(`https://robert-api.lavetro-agency.com/api/survey/${id}/answer`, postData, {
+    axios.post(`https://api.robquiz.com/api/survey/${id}/answer`, postData, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -638,7 +804,7 @@ useEffect(() => {
   const fetchData = async () => {
     if ((!isRequestSent.current && answersArray.length === quizes.length && result) || (!isRequestSent.current && time === 0 && result)|| (!isRequestSent.current&&result)) {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/survey/${id}/answers`);
+        const response = await axios.get(`https://api.robquiz.com/api/survey/${id}/answers`);
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
         isRequestSent.current = true; // قم بتعيين قيمة isRequestSent.current إلى true هنا إذا كنت ترغب في ذلك
@@ -900,10 +1066,10 @@ useEffect(() => {
 
     { survey === "top_ten" && (
       <div >
-        <div className='sticky-zh-fixed' style={{ position: 'sticky', top: '11%' ,
-         backgroundColor:'#fff',width:'80vw',borderBottom:'3px dashed',zIndex:'4'}}
+        <div className='sticky-zh-fixed' style={{ position: 'sticky', top: stickyTop ,
+         backgroundColor:'#fff',width:'80vw',zIndex:'4',height:'max-content'}}
          >
- <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}  >
+ <Form onSubmit={handleSubmit6} style={{ display: 'flex',marginBottom:'2px', justifyContent: 'space-between' }}  >
  
   <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
     <Form.Control
@@ -913,7 +1079,12 @@ useEffect(() => {
       value={userAnswer6}
       onChange={handleInputChange6}
       disabled={isQuestionSubmitted6}
- 
+      onFocus={handleTextareaFocus}
+              onBlur={handleTextareaBlur}
+              ref={inputRef}
+      id="textarea-answer"
+      // ref={textareaRef}
+        // style={{ height: textareaHeight }}
     />
   </FloatingLabel>
   {showErrorMessage && (
@@ -1031,8 +1202,24 @@ useEffect(() => {
   {survey === 'normal' ? `${index+1}  / ${quizes.length}` : ''}
 </div>        </div>
         </div>
-        <img className='img-quiz' src={quizes[index]?.question?.image===null?img2:url+quizes[index]?.question?.image}/> 
+        {/* <img className='img-quiz' src={quizes[index]?.question?.image===null?img2:url+quizes[index]?.question?.image}/>  */}
+        {/* <img
+  className="img-quiz"
+  src={
+    quizes[index]?.question?.image && (url + quizes[index]?.question?.image)
+  }
+/> */}
+{/* <div className="img-quiz-container"> */}
+  <img
+    className="img-quiz"
+    src={url + quizes[index]?.question?.image}
+    style={{ display: quizes[index]?.question?.image ? "block" : "none" }}
+  />
+  <div style={{ display: quizes[index]?.question?.image ? "none" : "block" }}>
+    {/* محتوى بديل (اختياري) */}
+  </div>
 </div>
+{/* // </div> */}
         </>}
        
         {((result || time === 0) && survey === 'normal') ? (

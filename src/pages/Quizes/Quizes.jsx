@@ -15,7 +15,7 @@ const Quizes = () => {
   const [searchQuery, setSearchQuery] = useState(''); // حالة البحث
   // تعريف المتغير currentPage
   const itemsPerPage = 2000; // عدد العناصر لكل صفحة
-  const url = 'https://robert-api.lavetro-agency.com/storage/';
+  const url = 'https://api.robquiz.com/storage/';
   const { id } = useParams();
   const [first, setfirst] = useState(true)
 
@@ -23,7 +23,7 @@ const Quizes = () => {
     const fetchData = async () => {
       try {
         if(first){
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/quizzes?q=${searchQuery}`);
+        const response = await axios.get(`https://api.robquiz.com/api/quizzes?q=${searchQuery}`);
         setCategories(response.data.data);
         console.log(response.data.data);
       }

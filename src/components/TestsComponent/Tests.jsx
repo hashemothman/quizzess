@@ -44,14 +44,14 @@ const Tests = (props) => {
   const [quizes, setQuizes] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // حالة لمؤشر التحميل
 
-  const url = 'https://robert-api.lavetro-agency.com/storage/';
+  const url = 'https://api.robquiz.com/storage/';
   const { id } = useParams();
   console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://robert-api.lavetro-agency.com/api/quizzes?category_id=${id}`);
+        const response = await axios.get(`https://api.robquiz.com/api/quizzes?category_id=${id}`);
         setQuizes(response.data.data);
         console.log(response.data.data);
       } catch (error) {
