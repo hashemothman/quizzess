@@ -46,12 +46,12 @@ const Quiz = () => {
  
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
+    // window.addEventListener('scroll', handleScroll);
     window.addEventListener('scroll',handleResize)
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
+      // window.removeEventListener('scroll', handleScroll);
       window.addEventListener('scroll',handleResize)
 
     }; // Cleanup function
@@ -775,9 +775,7 @@ useEffect(() => {
     </Alert>
     <Alert variant="success">
   الإجابة الصحيحة هي{" "}
-  {quizes[index]?.question?.answers.slice(0, -1).join(" أو ") +
-    " " +
-    quizes[index]?.question?.answers.slice(-1)}
+  {quizes[index]?.question?.answers.slice(0, 1)}
 </Alert>
   </>
 )}

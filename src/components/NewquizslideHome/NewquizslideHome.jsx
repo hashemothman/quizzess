@@ -9,6 +9,7 @@ import Newquiz from "../Newquiz/Newquiz";
 import axios from 'axios';
 
 const NewquizslideHome = (props) => {
+
     var settings = {
         dots: true,
         infinite: true,
@@ -70,7 +71,7 @@ const NewquizslideHome = (props) => {
         <Slider {...settings}>
         {quizes.map((quiz) => (
 
-          <Newquiz key={quiz.id} id={quiz.id} img={url + quiz.image} title={quiz.ar_name}   links={props.link}/>
+          <Newquiz key={quiz.id} id={quiz.id} img={url + quiz.image} title={quiz.ar_name}   links={props.link} />
 
         ))}
         {/* <div>

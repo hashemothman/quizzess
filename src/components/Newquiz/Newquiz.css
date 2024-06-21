@@ -25,6 +25,7 @@ a{
     font-size: .7rem;
     font-weight: 900;
     height: 0em;
+    direction: rtl !important;
 }
 
 @media (max-width:1400px){
@@ -122,6 +123,7 @@ a{
     font-weight: 500;
     width: 40%;
     font-size: .36rem;
+    direction: rtl !important;
 }
 .zh-newquiz .card-body .card-text{
     font-size: 1.35rem;

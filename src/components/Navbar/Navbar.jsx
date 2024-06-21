@@ -41,7 +41,8 @@ const Navbar = () => {
         <div>
           <Button variant="warning">
             <a
-              href='https://api.robquiz.com/api/create_survey'
+              // href='https://api.robquiz.com/api/create_survey'
+              href='https://dashboard.robquiz.com/create_survey'
               target='_b_blank'
               rel='noopener noreferrer'
               style={{ padding: '10px 20px', textDecoration: 'none', color: 'blue' }}

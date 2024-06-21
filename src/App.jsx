@@ -6,19 +6,20 @@ import Footer from './components/Footer/Footer.jsx';
 
 import router from './Router/Router.jsx'
 
+// import { IntlProvider } from 'react-intl';
 function App() {
   return (
-    <div className="App">
 
-      <Navbar />
-      <RouterProvider router={router}/>
-      {/* <Routes> */}
-       
-        {/* <Route path="/test" element={<TestPage />} /> */}
-        {/* <Route path="/popular" element={<PopularPage />} /> */}
+    
+     <div className="App">
+
+       <Navbar />
+       <RouterProvider router={router}/>
+      
      
-      <Footer />
-    </div>
+       <Footer />
+     </div>
+    
   );
 }
 

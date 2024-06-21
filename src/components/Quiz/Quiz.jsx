@@ -925,9 +925,7 @@ useEffect(() => {
     </Alert>
     <Alert variant="success">
   الإجابة الصحيحة هي{" "}
-  {quizes[index]?.question?.answers.slice(0, -1).join(" أو ") +
-    " " +
-    quizes[index]?.question?.answers.slice(-1)}
+  {quizes[index]?.question?.answers.slice(0, 1) }
 </Alert>
   </>
 )}

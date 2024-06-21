@@ -18,7 +18,7 @@ const Newquiz = (props) => {
             <Card.Img variant="top" src={props.img} style={{width:' 80%',
     margin: '0 auto',}} style2={props.style}/>
             <Card.Body style={{ textAlign: 'center' }}>
-              <Card.Title>{props.title}</Card.Title>
+              <Card.Title >{props.title}</Card.Title>
               {/* <Card.Text>{props.description}</Card.Text> */}
               {/* <Card.Text>عدد الاجابات: {props.answer}</Card.Text> */}
             </Card.Body>
