@@ -21,7 +21,18 @@ const Quiz = () => {
 
 
 
+  // const [isInputSticky, setIsInputSticky] = useState({position:'sticky',top:'12%'});
 
+  // const handleFocus =()=> {
+  //   setIsInputSticky({
+  //     ...isInputSticky,
+  //   position:'sticky',
+  //   top:'50%'})
+  // };
+
+  // const handleBlur = () => {
+  //   setIsInputSticky(false);
+  // };
 
 
 
@@ -889,7 +900,9 @@ useEffect(() => {
 
     { survey === "top_ten" && (
       <div >
-        <div style={{ position: 'sticky', top: '20%' , backgroundColor:'#fff',width:'60vw'}}>
+        <div className='sticky-zh-fixed' style={{ position: 'sticky', top: '11%' ,
+         backgroundColor:'#fff',width:'80vw',borderBottom:'3px dashed',zIndex:'4'}}
+         >
  <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}  >
  
   <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
@@ -929,9 +942,11 @@ useEffect(() => {
     </Button>
   )}
 </Form>
+{/* <hr/> */}
 </div>
+
         {quizes.map((survey, i) => (
-      <div className='zh-sticky-bottom' style={{width:'60vw'}}>
+      <div className='zh-sticky-bottom' style={{width:'80vw'}}>
       <div key={i} id={i} >
          
          {survey.question?.type === 'text' && (
@@ -966,7 +981,7 @@ useEffect(() => {
 
       paddingRight: '20%',
 
-      fontSize:'.5rem',
+      fontSize:'.9rem',
       paddingRight: '20%',
       borderLeft:'.2px solid gray'}}>
        {/* {survey?.question?.answers.map((value, index) => ( */}

@@ -18,7 +18,11 @@ import Card from 'react-bootstrap/Card';
 
 
 const Quiz = () => {
-
+  const handleFocus = () => {
+    // setIsInputSticky(true);
+    style.position='sticky'
+    style.top='12%'
+  };
 
 
 
@@ -651,7 +655,8 @@ useEffect(() => {
         {quizTitle?.notes}
         </Card.Text>
         <Card.Title style={{textAlign:'center'}}>عدد الاسئلة: {quizTitle?.questions_count}</Card.Title>
-        <Button variant="primary" onClick={() => { setStart(false); setButtonClicked(true); }} style={{ width: '80%' }}>بدء الاختبار</Button>
+        {/* <Button variant="primary" onClick={() => { setStart(false); setButtonClicked(true); }} style={{ width: '80%' }}></Button> */}
+        {IsLoadingSurvey? <Button>...</Button> : <Button variant="primary" onClick={() => { setStart(false); setButtonClicked(true); }} style={{ width: '80%' }}>بدء الاختبار</Button>}
         </Card.Body>
     </Card>
         </div>
@@ -996,7 +1001,8 @@ useEffect(() => {
 
     { survey === "top_ten" && (
       <div >
-        <div style={{ position: 'sticky', top: '20%' , backgroundColor:'#fff',width:'60vw'}}>
+        <div style={{ position: 'sticky', top: '12%' , backgroundColor:'#fff',width:'80vw'}}
+        >
  <Form onSubmit={handleSubmit6} style={{ display: 'flex', margin: '20px 0', justifyContent: 'space-between' }}  >
  
   <FloatingLabel controlId="floatingTextarea2" label="الاجابة" style={{ width: '70%', height: '70px' }}>
@@ -1038,7 +1044,7 @@ useEffect(() => {
 </Form>
 </div>
         {quizes.map((survey, i) => (
-      <div  className='zh-sticky-bottom' style={{width:'60vw'}}>
+      <div  className='zh-sticky-bottom' style={{width:'80vw'}}>
       <div key={i} id={i} >
          
          {survey.question?.type === 'text' && (
@@ -1070,7 +1076,7 @@ useEffect(() => {
      display: 'flex',
      justifyContent: 'space-evenly',
      width: '100%',
-      fontSize:'.5rem',
+      fontSize:'.9rem',
       paddingRight: '20%',
       height:'3.5em',
       borderLeft:'.2px solid gray'}}>

@@ -220,6 +220,11 @@
         .ha-input-number{
     width: 250px !important;
         }
+
+        .table-striped>tbody>tr:nth-of-type(odd)>*{
+            --bs-table-bg-type: #fff;
+            font-size: .7em !important;
+        }
        
     }
     
